@@ -25,7 +25,8 @@ added to the final check out bill. The bill is stored in the microcontrollers me
 4. Common mistakes are commiting undesired files like Local changes for testing.
 
 **After commiting the code:**
-1. Update the Team and make sure you have missed any files to commit.
+1. Make sure you haven't missed any files to commit.
 2. Common mistakes are forgeting to commit new files. So please check in Github server to see all the files are reflected properly.
+3. Update the Team.
 
 
