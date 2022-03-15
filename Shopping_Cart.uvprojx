@@ -259,17 +259,17 @@
                 <Size>0x0</Size>
               </XRAM>
               <OCR_RVCT1>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT1>
               <OCR_RVCT2>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT2>
               <OCR_RVCT3>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT3>
@@ -279,7 +279,7 @@
                 <Size>0x20000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT5>
@@ -313,7 +313,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>2</Optim>
+            <Optim>1</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <IncludePath>.\Include;.\Drivers;.\Middleware</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -381,12 +381,57 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>Source Group 1</GroupName>
+          <GroupName>Smart_Shopping_Cart_Client</GroupName>
           <Files>
             <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middleware</GroupName>
+          <Files>
+            <File>
+              <FileName>Barcode_Driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Middleware\Barcode_Driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>LCD_Driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Middleware\LCD_Driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>WiFi_Driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Middleware\WiFi_Driver.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Drivers</GroupName>
+          <Files>
+            <File>
+              <FileName>GPIO.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drivers\GPIO.c</FilePath>
+            </File>
+            <File>
+              <FileName>I2C.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drivers\I2C.c</FilePath>
+            </File>
+            <File>
+              <FileName>WiFi_UART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drivers\WiFi_UART.c</FilePath>
+            </File>
+            <File>
+              <FileName>Barcode_UART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drivers\Barcode_UART.c</FilePath>
             </File>
           </Files>
         </Group>
