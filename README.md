@@ -18,7 +18,7 @@ added to the final check out bill. The bill is stored in the microcontrollers me
 6. Final Application
 
 #### Rules:
-**Before commiting the code: **
+**Before commiting the code:**
 1. Make sure to get the lastest copy.
 2. Compile the code and ensure no compilation Errors and warnings are reported
 3. Warning can be ignored in somecases
