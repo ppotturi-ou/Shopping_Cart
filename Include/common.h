@@ -13,12 +13,13 @@ Lab#3 common header file
 #define _COMMON_H
 
 #include <MKL25Z4.h>  // Device header
+#include "delay.h"
 
 #define MASK(x) (1UL << (x))
 
 #define ERROR 0
 #define OK    1
-
+#define NULL ((void*)0)
 
 typedef enum  
 {

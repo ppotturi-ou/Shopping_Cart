@@ -123,7 +123,7 @@ extern "C" {
 #define MCG_MODE_BLPE                  5U
 #define MCG_MODE_PBE                   6U
 #define MCG_MODE_PEE                   7U
-
+#define CLOCK_SETUP 			1
 /* Predefined clock setups
    0 ... Default  part configuration
          Multipurpose Clock Generator (MCG) in FEI mode.
