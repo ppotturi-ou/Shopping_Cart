@@ -388,6 +388,11 @@
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
             </File>
+            <File>
+              <FileName>Shopping_list_struct.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Shopping_list_struct.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -399,14 +404,14 @@
               <FilePath>.\Middleware\Barcode_Driver.c</FilePath>
             </File>
             <File>
-              <FileName>LCD_Driver.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Middleware\LCD_Driver.c</FilePath>
-            </File>
-            <File>
               <FileName>WiFi_Driver.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Middleware\WiFi_Driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>lcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Middleware\lcd.c</FilePath>
             </File>
           </Files>
         </Group>

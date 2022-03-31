@@ -1,6 +1,6 @@
 /****************************************************
 Project: Shopping Cart with Built in billing system
-Members: 
+Members: ppotturi@oakland.edu
 
 Course: ECE 5721/4721 Winter 2022
 Oakland University
