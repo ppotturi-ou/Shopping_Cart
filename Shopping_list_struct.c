@@ -22,7 +22,7 @@ Shopping List handler file
 /*  desg: Employee itemPrice                                          */
 /*  Returns the new front pointer.                                    */
 /* ********************************************************************/
-void insert(S_shopping_list *front, int id, char name[],char price[],float itemPriceDec)
+void insert(S_shopping_list *front, int id, char name[],char price[],int itemPriceDec)
 {
 	struct shopping_list *temp;
 

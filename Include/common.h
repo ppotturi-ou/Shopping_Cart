@@ -20,6 +20,8 @@ Lab#3 common header file
 #define ERROR 0
 #define OK    1
 #define NULL ((void*)0)
+#define TRUE 1
+#define FALSE 0
 
 typedef enum  
 {

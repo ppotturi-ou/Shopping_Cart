@@ -18,11 +18,11 @@ typedef struct shopping_list
     int  ItemId;
     char ItemName[10];
     char itemPrice[7];
-	  float  itemPrice_dec;
+	  int  itemPrice_dec;
 	  //char dummy[3];
 }S_shopping_list;
 
-void insert(S_shopping_list *front, int id, char name[],char price[],float itemPriceDec);
+void insert(S_shopping_list *front, int id, char name[],char price[],int itemPriceDec);
 void ClearList(S_shopping_list *front);
 void display(S_shopping_list  *front);
 
