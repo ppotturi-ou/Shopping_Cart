@@ -14,7 +14,7 @@ struct shopping_list
     int  ItemId;
     char ItemName[10];
     char itemPrice[7];
-	  float  itemPrice_dec;
+	  int  itemPrice_dec;
 	  char dummy[3];
     struct shopping_list *next;
 };
@@ -27,7 +27,7 @@ struct shopping_list
 /*  desg: Employee itemPrice                                          */
 /*  Returns the new front pointer.                                    */
 /* ********************************************************************/
-struct shopping_list *insert(struct shopping_list *front, int id, char name[],char price[],float itemPriceDec)
+struct shopping_list *insert(struct shopping_list *front, int id, char name[],char price[],int itemPriceDec)
 {
     struct shopping_list *temp;
  

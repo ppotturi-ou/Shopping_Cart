@@ -18,16 +18,20 @@ Lab#3 Application file
 #include "I2C.h"
 
 static SC_FSM_States Shopping_Cart_App_State = Invalid_State;
-S_shopping_list ShoppingList[5];
 static int ListCnt = 0;
+static char ItemBarcode[12];
+S_shopping_list ShoppingList[5];
 static int Main_Menu_LCD = FALSE;
 static unsigned int Test_cnt = 0;
+static unsigned int ReadData_Server_Res=0;
+static char test_chr='\0';
 
 void Run_Application(void);
 SC_FSM_States Return_App_FSM_State(void);
 void LCD_Main_menu(void);
 void Clear_Shopping_list(void);
-void Display_Receipt(int *TotalItems, float *TotalPrice);
+void Display_Receipt(void);
+void Display_Item_info(void);
 
 /**********************************
 Function: Main
@@ -46,13 +50,20 @@ int main(void)
   LCD_DisplayString(" Welcome to OU Mart ");
 	LCD_GoToLine(2); 
   LCD_DisplayString("   Shopping Cart   ");
+	
+	//ShoppingList[0].ItemId = 0;
+	//strcpy(&ShoppingList[0].ItemName[0],"Chips");
+	//strcpy(&ShoppingList[0].itemPrice[0],"12.00");
+	
+	//Display_Item_info();
 	while(1)
 	{
 		Run_WiFi_Driver();
 		Run_Barcode_Driver();
 		//Run_LCD_Driver();
 		Run_Application();
-	
+		if(Shopping_Cart_App_State == Scanning)
+	  Display_Item_info();
 		
 	}
 }
@@ -67,10 +78,8 @@ Return:
 void Run_Application(void)
 {
 	char itemname[10], price[7];
-  float price_dec=0.0;
-  int itemno=0;
-  double test=0;
-	
+  int price_dec=0;
+
 	switch(Shopping_Cart_App_State)
 	{
 	
@@ -188,12 +197,14 @@ void Run_Application(void)
 				if(WiFi_ServerConnection_Sucess == Get_WiFi_SelfTest_Status())
 				{
 					LCD_GoToLine(0); 
-					LCD_DisplayString("Connected to Server");		
+					LCD_DisplayString("Connected to Server ");		
 					LCD_GoToLine(2); 
 					LCD_DisplayString("M: To Start Shopping");		
 					LCD_GoToLine(3); 
 					LCD_DisplayString("UP: go to Main Menu");
 					Shopping_Cart_App_State = Scanning;
+					Main_Menu_LCD	= FALSE;
+					
 				}
 				else if(WiFi_ServerConnection_Fail == Get_WiFi_SelfTest_Status())
 				{
@@ -223,29 +234,42 @@ void Run_Application(void)
 			break;
 
 			case Scanning:
-				/*
-				
+				 if(Main_Menu_LCD != TRUE)
+				 {
+					LCD_Clear();	 
+					LCD_DisplayString("Scanning ready...");	
+					 Main_Menu_LCD = TRUE;
+				 }
 				// Check if Barcoder sends New code
-				if(Barcode_New_Data == AVAILABLE)
+				if(BC_New_Data_Ready == TRUE)
 				{
+					
 					// Turn ON Blue LED for successful barcode data
 					// Turn OFF RED LED to reset status
 
 					// Clear barcode New Data Status
-					// Query item from server
+					BC_New_Data_Ready = FALSE;
+					Get_New_BC_Data(&ItemBarcode[0]);
 					// Turn ON Yellow LED for successful server request
-					Send_Data_to_Server(*str);	
-					if(Data == Received)
+				  // Query item from server
+					ReadData_Server_Res = Get_Item_info(&ItemBarcode[0],&itemname[0],&price[0],&price_dec);	
+					LCD_Clear();	
+//					LCD_GoToLine(0);
+					if(0x10 == ReadData_Server_Res)
 					{
 						// Turn ON Green LED for successful server response
-						itemno = 1;
-						strcpy(itemname, "Chips");
-						price_dec = atof("1.99");
-						price_dec = (float)1.99;
+						//itemno = 1;
+						//strcpy(itemname, "Chips");
+						//price_dec = atof("1.99");
+						//price_dec = (int)1.99;
 						if(ListCnt < 5)
 						{
-							insert(&ShoppingList[ListCnt], itemno, itemname, price, price_dec);
+							insert(&ShoppingList[ListCnt], ListCnt, itemname, price, price_dec);
 							ListCnt++;
+						//	Display_Item_info();
+							
+							//Todo: testing only
+							//strcpy(&ItemBarcode[0],"3456789012");
 						}
 						else
 						{
@@ -257,19 +281,21 @@ void Run_Application(void)
 					else
 					{
 						//Turn ON RED LED for data not received
-
+					LCD_Clear();	 
+					LCD_DisplayString("Scanning Error...");
+					Shopping_Cart_App_State = Shopping_Complete;
 					}
 				}
 				else
 				{
 					//Turn ON RED LED
 				}
-				if(M_Key == PRESSED)
-				{
-					//Shopping_Cart_App_State = Shopping_Complete;
-				}
+//				if(M_Key == PRESSED)
+//				{
+//					//Shopping_Cart_App_State = Shopping_Complete;
+//				}
 
-				*/
+				
 
 			break;
 			
@@ -287,10 +313,13 @@ void Run_Application(void)
 				}*/
 			
 				// Count Final #items and total Price
-				price_dec	= 0.00;
-				itemno = 0;
-				Display_Receipt(&itemno,&price_dec);
-				//LCD display 
+
+				Display_Receipt();
+				LCD_GoToLine(2); 
+				LCD_DisplayString("M: To Comp Shopping");		
+				LCD_GoToLine(3); 
+				LCD_DisplayString("UP: To Can Shopping");
+				Shopping_Cart_App_State = Invalid_State;
 
 			break;
 			
@@ -348,26 +377,88 @@ void Clear_Shopping_list(void)
 
 }
 /**********************************
+Function: Clear_Shopping_list
+Description:
+Parmeters:
+Return:
+
+**********************************/
+void Display_Item_info(void)
+{
+	int i=0,LCD_lineCnt=1;
+	char str_cat[20],strid[5];
+	
+	
+	for(i=0;i<3;i++)
+	{
+		
+		if(ShoppingList[i].ItemId !=0xFF)
+		{
+			
+
+			sprintf(str_cat, "%d", (ShoppingList[i].ItemId)+1);
+			strcat(str_cat,".");
+			strcat(str_cat,&ShoppingList[i].ItemName[0]);
+			strcat(str_cat," $");
+			strcat(str_cat,&ShoppingList[i].itemPrice[0]);
+			
+			LCD_DisplayString(str_cat);
+			LCD_GoToLine(LCD_lineCnt++);
+		}
+	}
+
+}
+/**********************************
 Function: Display_Receipt
 Description:
 Parmeters:
 Return:
 
 **********************************/
-void Display_Receipt(int *TotalItems, float *TotalPrice)
+void Display_Receipt(void)
 {
 	int i=0;
+	int TotalItems=0, TotalPrice=0;
+	
 	for(i=0;i<5;i++)
 	{
 		if(ShoppingList[i].ItemId !=0xFF)
 		{
-			*TotalItems = *TotalItems + 1;
-			*TotalPrice = *TotalPrice + ShoppingList[i].itemPrice_dec;
+			TotalItems = TotalItems + 1;
+			TotalPrice = TotalPrice + ShoppingList[i].itemPrice_dec;
 		}
 	}
+	
+	LCD_Clear();
+	LCD_DisplayString("Total Items: ");
+	LCD_Printf("%2d",TotalItems);
+	LCD_GoToLine(1);
+  LCD_DisplayString("Total Price: $");
+	if((TotalPrice/100)!=0)
+	{
+		LCD_Printf("%2d",(TotalPrice/100));
+	}
+	else
+	{
+		LCD_DisplayString("00");
+	}
+	LCD_DisplayString(".");
+	if((TotalPrice%100)!=0)
+	{
+		LCD_Printf("%2d",(TotalPrice%100));
+	}
+	else
+	{
+		LCD_DisplayString("00");
+	}
+	
 
 }
 
-
+//void HardFault_Handler(void)
+//{
+//	
+//	while(1);
+//}
 
 /*** EOF  ****/

@@ -82,9 +82,11 @@ and that both those copyright notices and this permission notice appear in suppo
                           Global Variables and Structures
 ****************************************************************************************************/
 uint8_t v_LcdTrackLineNum_U8;         //Variable to track the line numbers
-uint8_t v_LcdTrackCursorPos_U8;       //Variable to track the cursor
-LcdConfig_st LCDConfig;               //Structure containing the selected LCD Configuration
-uint8_t ARR_LcdLineNumAddress_U8[]={0x80,0xc0,0x90,0xd0};
+static uint8_t v_LcdTrackCursorPos_U8;       //Variable to track the cursor
+static LcdConfig_st LCDConfig;               //Structure containing the selected LCD Configuration
+static LcdConfig_st LCDConfig2;               //Structure containing the selected LCD Configuration
+static uint8_t ARR_LcdLineNumAddress_U8[]={0x80,0xc0,0x90,0xd0};
+
 /**************************************************************************************************/
 
 
@@ -135,7 +137,7 @@ void LCD_SetUp( pin numbers of lcd)
 **************************************************************************************************/
 void LCD_SetUp(void)
 {
-   LCDConfig.v_LcdMode_U8 = 4; // Select 4-bit mode as D0-D3 are not used(P_NC) 
+   LCDConfig2.v_LcdMode_U8 = 4; // Select 4-bit mode as D0-D3 are not used(P_NC) 
 }
 
 
@@ -154,7 +156,8 @@ void LCD_Init(uint8_t v_lcdNoOfLines_u8, uint8_t v_MaxCharsPerLine_u8)
 {
 
 	i2c_init();	
-	
+	LCDConfig.v_LcdMode_U8 = 0;
+	LCDConfig.v_MaxSupportedChars_U8 = 0;
 	LCD_CmdWrite(0x02);// Initialize Lcd in 4-bit mode
 	LCD_CmdWrite(0x28);// enable 5x7 mode for chars
 	LCD_CmdWrite(0x0E);// Display ON, Cursor ON
@@ -162,8 +165,8 @@ void LCD_Init(uint8_t v_lcdNoOfLines_u8, uint8_t v_MaxCharsPerLine_u8)
 	LCD_CmdWrite(0x80);// Move the cursor to beginning of first line
 		//LCD_SetUp();
 	
-    LCDConfig.v_MaxSupportedChars_U8 = v_MaxCharsPerLine_u8; //Maintaian the LCD type
-    LCDConfig.v_MaxSupportedLines_U8 = v_lcdNoOfLines_u8;
+    LCDConfig2.v_MaxSupportedChars_U8 = v_MaxCharsPerLine_u8; //Maintaian the LCD type
+    LCDConfig2.v_MaxSupportedLines_U8 = v_lcdNoOfLines_u8;
     if(v_lcdNoOfLines_u8 > C_LcdLineTwo)
     {
         ARR_LcdLineNumAddress_U8[C_LcdLineTwo] =  0x90 + (v_MaxCharsPerLine_u8 & 0x0fu);
@@ -172,11 +175,11 @@ void LCD_Init(uint8_t v_lcdNoOfLines_u8, uint8_t v_MaxCharsPerLine_u8)
 
     Delay(1);
 
-    if(LCDConfig.v_LcdMode_U8 == C_EightBitMode_U8)
+    if(LCDConfig2.v_LcdMode_U8 == C_EightBitMode_U8)
     {
         LCD_CmdWrite(CMD_LCD_EIGHT_BIT_MODE); // Initialize the LCD for 8-bit 5x7 matrix type
     }
-    else if(LCDConfig.v_LcdMode_U8 == C_FourBitMode_U8)
+    else if(LCDConfig2.v_LcdMode_U8 == C_FourBitMode_U8)
     {
         lcd_Reset();
         LCD_CmdWrite(CMD_LCD_FOUR_BIT_MODE); // Initialize the LCD for 4-bit 5x7 matrix type 
@@ -227,7 +230,7 @@ void LCD_Clear()
 ****************************************************************************************************/
 void LCD_GoToLine(uint8_t v_lineNumber_u8)
 {
-    if(v_lineNumber_u8 < LCDConfig.v_MaxSupportedLines_U8)
+    if(v_lineNumber_u8 < LCDConfig2.v_MaxSupportedLines_U8)
     {
         /* If the line number is within range then
            Move the Cursor to beginning of the specified line */
@@ -258,7 +261,7 @@ void  LCD_GoToNextLine(void)
       In case it exceeds the limit, rool it back to first line */
     v_LcdTrackLineNum_U8++;
     v_LcdTrackCursorPos_U8 = 0x00;
-    if(v_LcdTrackLineNum_U8 >= LCDConfig.v_MaxSupportedLines_U8)
+    if(v_LcdTrackLineNum_U8 >= LCDConfig2.v_MaxSupportedLines_U8)
         v_LcdTrackLineNum_U8 = C_LcdLineZero;
     LCD_CmdWrite(ARR_LcdLineNumAddress_U8[v_LcdTrackLineNum_U8]);
 }
@@ -287,8 +290,8 @@ void  LCD_GoToNextLine(void)
 void LCD_SetCursor(uint8_t v_lineNumber_u8, uint8_t v_charNumber_u8)
 {
 
-    if((v_lineNumber_u8 < LCDConfig.v_MaxSupportedLines_U8) &&
-            (v_charNumber_u8< LCDConfig.v_MaxSupportedChars_U8))
+    if((v_lineNumber_u8 < LCDConfig2.v_MaxSupportedLines_U8) &&
+            (v_charNumber_u8< LCDConfig2.v_MaxSupportedChars_U8))
     {
         /*If the line number and char are in range then
            move the Cursor to specified Position*/
@@ -363,7 +366,7 @@ void LCD_CmdWrite( uint8_t data)
 ****************************************************************************************************/
 void LCD_DisplayChar(char v_lcdData_u8)
 {
-    if((v_LcdTrackCursorPos_U8>=LCDConfig.v_MaxSupportedChars_U8) || (v_lcdData_u8=='\n'))
+    if((v_LcdTrackCursorPos_U8>=LCDConfig2.v_MaxSupportedChars_U8) || (v_lcdData_u8=='\n'))
     {
         /* If the cursor has reached to end of line on page1
         OR NewLine command is issued Then Move the cursor to next line */
@@ -428,7 +431,7 @@ void LCD_ScrollMessage(uint8_t v_lineNumber_u8, char *ptr_msgPointer_u8)
     unsigned char i,j;
 
 
-    if(v_lineNumber_u8 >= LCDConfig.v_MaxSupportedLines_U8)
+    if(v_lineNumber_u8 >= LCDConfig2.v_MaxSupportedLines_U8)
         v_lineNumber_u8 = C_LcdLineZero; // Select first line if the v_lineNumber_u8 is out of range
 
     LCD_CmdWrite(CMD_DISPLAY_ON_CURSOR_OFF);             //Disable the Cursor
@@ -441,14 +444,14 @@ void LCD_ScrollMessage(uint8_t v_lineNumber_u8, char *ptr_msgPointer_u8)
 
         LCD_GoToLine(v_lineNumber_u8);     //Move the Cursor to first line
 
-        for(j=0;(j<LCDConfig.v_MaxSupportedChars_U8) && (ptr_msgPointer_u8[i+j]);j++)
+        for(j=0;(j<LCDConfig2.v_MaxSupportedChars_U8) && (ptr_msgPointer_u8[i+j]);j++)
         {
             //Display first 16 Chars or till Null char is reached
             LCD_DisplayChar(ptr_msgPointer_u8[i+j]);
         }
 
 
-        while( j<LCDConfig.v_MaxSupportedChars_U8)
+        while( j<LCDConfig2.v_MaxSupportedChars_U8)
         {
             /*If the chars to be scrolled are less than MaxLcdChars,
               then display remaining chars with blank spaces*/
@@ -799,6 +802,7 @@ static void lcd_DataWrite( uint8_t data)
 	uint8_t ctrl_data; //RS/RW/EN
 	uint8_t final_data;
 	uint8_t add = 0x4E;
+	
 	
 	// Send upper nibble
 	ctrl_data = RS_1|EN_1|BK_1; //EN=1

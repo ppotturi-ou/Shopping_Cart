@@ -107,6 +107,7 @@ void Run_WiFi_Driver(void)
 					LCD_DisplayString("Connecting to WiFi");
 					Send_String("AT+CWJAP=""\"""MySpectrumWiFi78-2G""\""",""\"""Kprexy2013""\"""\r\n");
 					//Send_String("AT+CWJAP=""\"""Pradeep's iPhone""\""",""\"""Dimboo123$""\"""\r\n");
+					//Send_String("AT+CWJAP=""\"""WAVLINK-N""\""",""\"""Shopping123$""\"""\r\n");
 					Delay(2000);
 					res=read_data("WIFI CONNECTED"); 
 					if(res == WiFi_RES_SUCCESS)
@@ -157,8 +158,8 @@ void Run_WiFi_Driver(void)
 					LCD_DisplayString("Connecting to Server");
 					// Connect Server in TCP protocol using IP and Port
 					Send_String("AT+CIPSTART=""\"""TCP""\""",""\"""192.168.1.186""\""",""5002""\r\n");
-					//Send_String("AT+CWJAP=""\"""Pradeep's iPhone""\""",""\"""Dimboo123$""\"""\r\n");
-					Delay(2000);
+					//Send_String("AT+CIPSTART=""\"""TCP""\""",""\"""192.168.10.109""\""",""5002""\r\n");
+					Delay(1000);
 					res=read_data("OK"); 
 					if(res == WiFi_RES_SUCCESS)
 					{
@@ -328,29 +329,56 @@ Parmeters:
 Return:
 
 **********************************/
-void Get_Item_info(uint8_t *Barcode_ID[], int *id, char *name[],char *price[],float *itemPriceDec)
+uint16_t Get_Item_info(uint8_t Barcode_ID[12], char name[],char price[],int* itemPriceDec)
 {
-	int server_res = 0;
+	int server_res = 0,i=0,j=0;
 	char str[15];
-	sprintf(str, "%d", 42);
+	int tem_dec=0;
+	
+	*itemPriceDec = 0;
+	//sprintf(str, "%d", 42);
 	//Connect to Server
 	
+	//Todo: updated the legth of cmd
 	// Send Barcode Query
-	Send_String("AT+CIPSEND=4\r\n");
+	Send_String("AT+CIPSEND=12\r\n");
 	
 	Delay(50);
 	server_res=read_data("OK");
 	if(server_res == WiFi_RES_SUCCESS)
 	{
-		Send_String(Barcode_ID[0]);
+		Send_String(&Barcode_ID[0]);
 		Delay(50);
 		server_res=read_data("SEND OK");
 		if(server_res == WiFi_RES_SUCCESS)
 		{
+			
 			//Wait for response from Server
 			Delay(1000);
-			server_res=read_data_from_Server("+IPD,");
-			
+			server_res=read_data_from_Server("+IPD,",&Barcode_ID[0],&name[0],&price[0]);
+			if(server_res == WiFi_RES_SUCCESS)
+			{
+					// Integer value
+					i=0;
+					while((price[i]!='.')&& (i<5))
+					{
+						*itemPriceDec *=10;
+						*itemPriceDec += (price[i++]-0x30);
+					}
+					//Decimal Value
+					i++;
+					for(j=1;j<3;j++)
+					{
+						*itemPriceDec *=10;
+						*itemPriceDec += (price[i++]-0x30);
+					}
+				return 0x10;
+			}
+		}
+		else
+		{
+			return 0xFF;
+		
 		}
 	}
 		
@@ -364,10 +392,10 @@ Parmeters:
 Return:
 
 **********************************/
-uint16_t read_data_from_Server(uint8_t * str)
+uint16_t read_data_from_Server(uint8_t * str, uint8_t Check_Barcode_ID[], char name[],char price[])
 {
-	int i,buf_size=0,res_size;
-	char temp[200];
+	int i,buf_size=0,res_size,str_cnt=0;
+	char temp[200],res_len[3],res_id[12];
 	uint8_t * bp,*temp2;
 	uint16_t Server_res=0,size_str;
 	
@@ -385,8 +413,9 @@ uint16_t read_data_from_Server(uint8_t * str)
 		bp++;
 		buf_size++;
 	}
+	/*** Check response +IPD,  ******/
 	size_str = strlen(str);
-	for(i=0;i<buf_size;i++)
+	for(i=0;i<buf_size;i++,str_cnt++)
 	{
 		/*if(str[0] == temp[i])
 		{
@@ -400,17 +429,20 @@ uint16_t read_data_from_Server(uint8_t * str)
 		if(0 == strncmp(str,temp2,size_str))
 		{
 			Server_res = WiFi_RES_SUCCESS;
+			str_cnt+=size_str;
 			break;
 		}
 		else if(0 == strncmp("ERROR",temp2,5))
 		{
 			Server_res = WiFi_RES_ERROR;
-			break;
+			return Server_res;
+			//break;
 		}
 		else if(0 == strncmp("FAIL",temp2,4))
 		{
 			Server_res = WiFi_RES_FAIL;
-			break;
+			return Server_res;
+			//break;
 		}
 		/*else if(0 == strncmp("ERROR",temp2,size_str))
 		{
@@ -422,6 +454,55 @@ uint16_t read_data_from_Server(uint8_t * str)
 		}
 	
 	}
+	
+	/*** Check response :,  ******/
+	i=0;
+	while((temp[str_cnt]!=':')&& (str_cnt<199))
+	{
+		res_len[i++]= temp[str_cnt++];
+	}
+	str_cnt++;
+	
+	// Save res barcode id to check is the response is for the same request
+	for(i=0;i<12;i++)
+	{
+		res_id[i]=0xFF;
+	}
+	i=0;
+	while((temp[str_cnt]!=',')&& (str_cnt<199))
+	{
+		res_id[i++]= temp[str_cnt++];
+	}
+	res_id[i++]='\0';
+	
+	
+	size_str = strlen(Check_Barcode_ID);
+	if(0 != strncmp(Check_Barcode_ID,res_id,size_str))
+	{
+			Server_res = WiFi_RES_FAIL;
+			return Server_res;
+	}
+	
+	str_cnt++;
+	i=0;
+	while((temp[str_cnt]!=',')&& (str_cnt<199))
+	{
+		name[i++]= temp[str_cnt++];
+	}
+	
+	str_cnt++;
+	i=0;
+	while((temp[str_cnt]!='*')&& (str_cnt<199))
+	{
+		price[i++]= temp[str_cnt++];
+	}
+	
+	if(str_cnt>199)
+	{
+		Server_res = WiFi_RES_FAIL;
+		return Server_res;
+	}
+	
 	//res_strcmp = strcmp(str,temp);
 	
 	//res_len = strlen(str);

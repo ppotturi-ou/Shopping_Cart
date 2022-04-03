@@ -16,6 +16,8 @@ I2C driver file
 int lock_detect=0;
 int i2c_lock=0;
 
+
+
 //init i2c0
 void i2c_init(void)
 {
