@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.36.0.0
 Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Pradeep Potturi, Oakland University, LIC=----
+License Information: Jonatan Cogiel, Oakland University, LIC=----
  
 Tool Versions:
 Toolchain:       MDK-Lite  Version: 5.36.0.0
@@ -21,8 +21,8 @@ Target DLL:      CMSIS_AGDI.dll V1.33.0.0
 Dialog DLL:      TARMCM1.DLL V1.14.4.0
  
 <h2>Project:</h2>
-C:\Pradeep\Personal\USA\MS\OU\Embedded Systems Design\Project\Source_Code\Shopping_Cart\Shopping_Cart.uvprojx
-Project File Date:  03/30/2022
+C:\Users\cogie\Documents\GitHub\Shopping_Cart\Shopping_Cart.uvprojx
+Project File Date:  04/03/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
@@ -48,75 +48,6 @@ void display(S_shopping_list  *front)
                                ^
 4 warnings generated.
 compiling Shopping_list_struct.c...
-compiling Barcode_UART.c...
-Drivers/I2C.c(16): warning: no previous extern declaration for non-static variable 'lock_detect' [-Wmissing-variable-declarations]
-int lock_detect=0;
-    ^
-Drivers/I2C.c(16): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int lock_detect=0;
-^
-Drivers/I2C.c(17): warning: no previous extern declaration for non-static variable 'i2c_lock' [-Wmissing-variable-declarations]
-int i2c_lock=0;
-    ^
-Drivers/I2C.c(17): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int i2c_lock=0;
-^
-Drivers/I2C.c(90): warning: '#pragma no_inline' is an ARM Compiler 5 extension, and is not supported by ARM Compiler 6 [-Warmcc-pragma-inline]
-#pragma no_inline 
-        ^
-Drivers/I2C.c(46): warning: no previous prototype for function 'i2c_busy' [-Wmissing-prototypes]
-void i2c_busy(void){
-     ^
-Drivers/I2C.c(46): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void i2c_busy(void){
-^
-static 
-Drivers/I2C.c(91): warning: no previous prototype for function 'i2c_wait' [-Wmissing-prototypes]
-void i2c_wait(void) {
-     ^
-Drivers/I2C.c(91): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void i2c_wait(void) {
-^
-static 
-Drivers/I2C.c(109): warning: '#pragma no_inline' is an ARM Compiler 5 extension, and is not supported by ARM Compiler 6 [-Warmcc-pragma-inline]
-#pragma no_inline 
-        ^
-Drivers/I2C.c(187): warning: '#pragma no_inline' is an ARM Compiler 5 extension, and is not supported by ARM Compiler 6 [-Warmcc-pragma-inline]
-#pragma no_inline 
-        ^
-Drivers/I2C.c(188): warning: unused parameter 'address' [-Wunused-parameter]
-void i2c_write_byte(uint8_t dev, uint8_t address, uint8_t data)
-                                         ^
-8 warnings generated.
-compiling I2C.c...
-Drivers/WiFi_UART.c(37): warning: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
-        UART2->D = ch;
-                 ~ ^~
-Drivers/WiFi_UART.c(35): warning: unused parameter 'f' [-Wunused-parameter]
-int fputc(int ch, FILE *f){
-                        ^
-Drivers/WiFi_UART.c(42): warning: unused parameter 'f' [-Wunused-parameter]
-int fgetc(FILE *f){
-                ^
-Drivers/WiFi_UART.c(138): warning: no previous prototype for function 'UART2_IRQHandler' [-Wmissing-prototypes]
-void UART2_IRQHandler(void) {
-     ^
-Drivers/WiFi_UART.c(138): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void UART2_IRQHandler(void) {
-^
-static 
-Drivers/WiFi_UART.c(195): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
-        return Q_Size(&WiFi_UART_RxQ);
-        ~~~~~~ ^~~~~~~~~~~~~~~~~~~~~~
-5 warnings generated.
-compiling WiFi_UART.c...
-compiling GPIO.c...
-Drivers/queue.c(21): warning: implicit conversion changes signedness: 'volatile unsigned int' to 'int' [-Wsign-conversion]
-        return q->Size;
-        ~~~~~~ ~~~^~~~
-1 warning generated.
-compiling queue.c...
-compiling delay.c...
 main.c(17): warning: In file included from...
 ./Middleware\lcd.h(54): warning: non-portable path to file '<MKL25Z4.h>'; specified path differs in case from file name on disk [-Wnonportable-include-path]
 #include <MKL25Z4.H>
@@ -126,12 +57,12 @@ main.c(16): warning: In file included from...
 ./Shopping_list_struct.h(21): warning: padding struct 'struct shopping_list' with 3 bytes to align 'itemPrice_dec' [-Wpadded]
           float  itemPrice_dec;
                  ^
-main.c(69): warning: unused variable 'price' [-Wunused-variable]
-        char itemname[10], price[7];
-                           ^
 main.c(72): warning: unused variable 'test' [-Wunused-variable]
   double test=0;
          ^
+main.c(69): warning: unused variable 'price' [-Wunused-variable]
+        char itemname[10], price[7];
+                           ^
 main.c(69): warning: unused variable 'itemname' [-Wunused-variable]
         char itemname[10], price[7];
              ^
@@ -383,11 +314,93 @@ LcdConfig_st LCDConfig;               //Structure containing the selected LCD Co
 ^
 16 warnings generated.
 compiling lcd.c...
-compiling system_MKL25Z4.c...
+Drivers/I2C.c(16): warning: no previous extern declaration for non-static variable 'lock_detect' [-Wmissing-variable-declarations]
+int lock_detect=0;
+    ^
+Drivers/I2C.c(16): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int lock_detect=0;
+^
+Drivers/I2C.c(17): warning: no previous extern declaration for non-static variable 'i2c_lock' [-Wmissing-variable-declarations]
+int i2c_lock=0;
+    ^
+Drivers/I2C.c(17): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int i2c_lock=0;
+^
+Drivers/I2C.c(90): warning: '#pragma no_inline' is an ARM Compiler 5 extension, and is not supported by ARM Compiler 6 [-Warmcc-pragma-inline]
+#pragma no_inline 
+        ^
+Drivers/I2C.c(46): warning: no previous prototype for function 'i2c_busy' [-Wmissing-prototypes]
+void i2c_busy(void){
+     ^
+Drivers/I2C.c(46): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void i2c_busy(void){
+^
+static 
+Drivers/I2C.c(91): warning: no previous prototype for function 'i2c_wait' [-Wmissing-prototypes]
+void i2c_wait(void) {
+     ^
+Drivers/I2C.c(91): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void i2c_wait(void) {
+^
+static 
+Drivers/I2C.c(109): warning: '#pragma no_inline' is an ARM Compiler 5 extension, and is not supported by ARM Compiler 6 [-Warmcc-pragma-inline]
+#pragma no_inline 
+        ^
+Drivers/I2C.c(187): warning: '#pragma no_inline' is an ARM Compiler 5 extension, and is not supported by ARM Compiler 6 [-Warmcc-pragma-inline]
+#pragma no_inline 
+        ^
+Drivers/I2C.c(188): warning: unused parameter 'address' [-Wunused-parameter]
+void i2c_write_byte(uint8_t dev, uint8_t address, uint8_t data)
+                                         ^
+8 warnings generated.
+compiling I2C.c...
+Drivers/WiFi_UART.c(37): warning: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+        UART2->D = ch;
+                 ~ ^~
+Drivers/WiFi_UART.c(35): warning: unused parameter 'f' [-Wunused-parameter]
+int fputc(int ch, FILE *f){
+                        ^
+Drivers/WiFi_UART.c(42): warning: unused parameter 'f' [-Wunused-parameter]
+int fgetc(FILE *f){
+                ^
+Drivers/WiFi_UART.c(138): warning: no previous prototype for function 'UART2_IRQHandler' [-Wmissing-prototypes]
+void UART2_IRQHandler(void) {
+     ^
+Drivers/WiFi_UART.c(138): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void UART2_IRQHandler(void) {
+^
+static 
+Drivers/WiFi_UART.c(195): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+        return Q_Size(&WiFi_UART_RxQ);
+        ~~~~~~ ^~~~~~~~~~~~~~~~~~~~~~
+5 warnings generated.
+compiling WiFi_UART.c...
+compiling Barcode_UART.c...
+Drivers/queue.c(21): warning: implicit conversion changes signedness: 'volatile unsigned int' to 'int' [-Wsign-conversion]
+        return q->Size;
+        ~~~~~~ ~~~^~~~
+1 warning generated.
+compiling queue.c...
+compiling delay.c...
+Drivers/GPIO.c(34): warning: implicit declaration of function 'Delay' is invalid in C99 [-Wimplicit-function-declaration]
+        Delay(100);
+        ^
+Drivers/GPIO.c(81): warning: implicit declaration of function 'Delay' is invalid in C99 [-Wimplicit-function-declaration]
+                                Delay(50);
+                                ^
+Drivers/GPIO.c(94): warning: implicit declaration of function 'Delay' is invalid in C99 [-Wimplicit-function-declaration]
+                                Delay(50);
+                                ^
+Drivers/GPIO.c(107): warning: implicit declaration of function 'Delay' is invalid in C99 [-Wimplicit-function-declaration]
+                                Delay(50);
+                                ^
+4 warnings generated.
+compiling GPIO.c...
 assembling startup_MKL25Z4.s...
+compiling system_MKL25Z4.c...
 linking...
 Program Size: Code=6952 RO-data=728 RW-data=8 ZI-data=1584  
-".\Objects\Shopping_Cart.axf" - 0 Error(s), 71 Warning(s).
+".\Objects\Shopping_Cart.axf" - 0 Error(s), 75 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -406,8 +419,8 @@ Package Vendor: Keil
 <h2>Collection of Component include folders:</h2>
   .\RTE\Device\MKL25Z128xxx4
   .\RTE\_Target_1
-  C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
-  C:\Users\cjp3tq\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include
+  C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
+  C:\Users\cogie\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
 
@@ -415,8 +428,8 @@ Package Vendor: Keil
 
    * Component: Keil::Device:Startup:2.5.0
       Include file:  Device\Source\system_MKL25Z4.h
-      Source file:   Device\Source\ARM\startup_MKL25Z4.s
       Source file:   Device\Source\system_MKL25Z4.c
+      Source file:   Device\Source\ARM\startup_MKL25Z4.s
 Build Time Elapsed:  00:00:03
 </pre>
 </body>

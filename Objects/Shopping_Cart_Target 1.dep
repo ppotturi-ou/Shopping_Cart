@@ -1,152 +1,151 @@
 Dependencies for Project 'Shopping_Cart', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 6160000::V6.16::ARMCLANG
-F (.\main.c)(0x6245156F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/main.o -MD)
-I (Include\common.h)(0x62429072)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x623FBECB)
+F (.\main.c)(0x6245187A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cogie/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cogie/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/main.o -MD)
+I (Include\common.h)(0x624397D4)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C32DA)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035BEA0)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624275EF)
-I (Drivers\delay.h)(0x6244B562)
-I (Middleware\Barcode_Driver.h)(0x62300F98)
-I (Drivers\Barcode_UART.h)(0x62300F3F)
-I (Middleware\LCD_Driver.h)(0x623010E7)
-I (Drivers\I2C.h)(0x62451706)
-I (Middleware\WiFi_Driver.h)(0x6245050F)
-I (Drivers\WiFi_UART.h)(0x62431BF1)
-I (Drivers\queue.h)(0x62421BF3)
-I (Shopping_list_struct.h)(0x62431DD5)
-I (Middleware\lcd.h)(0x624516F4)
-I (Drivers\stdutils.h)(0x6243CE66)
-F (.\Shopping_list_struct.c)(0x624329B2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/shopping_list_struct.o -MD)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624397D4)
+I (Drivers\delay.h)(0x6245187A)
+I (Middleware\Barcode_Driver.h)(0x624397D4)
+I (Drivers\Barcode_UART.h)(0x624397D4)
+I (Middleware\LCD_Driver.h)(0x624397D4)
+I (Drivers\I2C.h)(0x6245187A)
+I (Middleware\WiFi_Driver.h)(0x6245187A)
+I (Drivers\WiFi_UART.h)(0x6245187A)
+I (Drivers\queue.h)(0x624397D4)
+I (Shopping_list_struct.h)(0x6245187A)
+I (Middleware\lcd.h)(0x6245187A)
+I (Drivers\stdutils.h)(0x6245187A)
+F (.\Shopping_list_struct.c)(0x6245187A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cogie/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cogie/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/shopping_list_struct.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6035BEA0)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x6035BEA0)
-I (Shopping_list_struct.h)(0x62431DD5)
-I (Include\common.h)(0x62429072)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x623FBECB)
+I (Shopping_list_struct.h)(0x6245187A)
+I (Include\common.h)(0x624397D4)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C32DA)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035BEA0)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624275EF)
-I (Drivers\delay.h)(0x6244B562)
-F (.\Middleware\Barcode_Driver.c)(0x623012EA)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/barcode_driver.o -MD)
-I (Middleware\Barcode_Driver.h)(0x62300F98)
-I (Include\common.h)(0x62429072)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x623FBECB)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624397D4)
+I (Drivers\delay.h)(0x6245187A)
+F (.\Middleware\Barcode_Driver.c)(0x624397D4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cogie/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cogie/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/barcode_driver.o -MD)
+I (Middleware\Barcode_Driver.h)(0x624397D4)
+I (Include\common.h)(0x624397D4)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C32DA)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035BEA0)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624275EF)
-I (Drivers\delay.h)(0x6244B562)
-I (Drivers\Barcode_UART.h)(0x62300F3F)
-F (.\Middleware\WiFi_Driver.c)(0x62450CF7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/wifi_driver.o -MD)
-I (Middleware\WiFi_Driver.h)(0x6245050F)
-I (Include\common.h)(0x62429072)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x623FBECB)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624397D4)
+I (Drivers\delay.h)(0x6245187A)
+I (Drivers\Barcode_UART.h)(0x624397D4)
+F (.\Middleware\WiFi_Driver.c)(0x6245187A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cogie/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cogie/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/wifi_driver.o -MD)
+I (Middleware\WiFi_Driver.h)(0x6245187A)
+I (Include\common.h)(0x624397D4)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C32DA)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035BEA0)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624275EF)
-I (Drivers\delay.h)(0x6244B562)
-I (Drivers\WiFi_UART.h)(0x62431BF1)
-I (Drivers\queue.h)(0x62421BF3)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624397D4)
+I (Drivers\delay.h)(0x6245187A)
+I (Drivers\WiFi_UART.h)(0x6245187A)
+I (Drivers\queue.h)(0x624397D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6035BEA0)
-I (Middleware\lcd.h)(0x624516F4)
-I (Drivers\stdutils.h)(0x6243CE66)
-F (.\Middleware\lcd.c)(0x62451729)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/lcd.o -MD)
+I (Middleware\lcd.h)(0x6245187A)
+I (Drivers\stdutils.h)(0x6245187A)
+F (.\Middleware\lcd.c)(0x6245187A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cogie/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cogie/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/lcd.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x6035BEA4)
-I (Drivers\delay.h)(0x6244B562)
+I (Drivers\delay.h)(0x6245187A)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035BEA0)
-I (Middleware\lcd.h)(0x624516F4)
-I (Drivers\stdutils.h)(0x6243CE66)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.H)(0x623FBECB)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624275EF)
-I (Drivers\i2c.h)(0x62451706)
-I (Include\common.h)(0x62429072)
-F (.\Drivers\GPIO.c)(0x62301213)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/gpio.o -MD)
-I (Drivers\GPIO.h)(0x623010EF)
-I (Include\common.h)(0x62429072)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x623FBECB)
+I (Middleware\lcd.h)(0x6245187A)
+I (Drivers\stdutils.h)(0x6245187A)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.H)(0x585C32DA)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624397D4)
+I (Drivers\i2c.h)(0x6245187A)
+I (Include\common.h)(0x624397D4)
+F (.\Drivers\I2C.c)(0x6245187A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cogie/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cogie/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/i2c.o -MD)
+I (Drivers\I2C.h)(0x6245187A)
+I (Include\common.h)(0x624397D4)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C32DA)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035BEA0)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624275EF)
-I (Drivers\delay.h)(0x6244B562)
-F (.\Drivers\I2C.c)(0x62451707)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/i2c.o -MD)
-I (Drivers\I2C.h)(0x62451706)
-I (Include\common.h)(0x62429072)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x623FBECB)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624397D4)
+I (Drivers\delay.h)(0x6245187A)
+F (.\Drivers\WiFi_UART.c)(0x6245187A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cogie/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cogie/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/wifi_uart.o -MD)
+I (Drivers\WiFi_UART.h)(0x6245187A)
+I (Include\common.h)(0x624397D4)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C32DA)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035BEA0)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624275EF)
-I (Drivers\delay.h)(0x6244B562)
-F (.\Drivers\WiFi_UART.c)(0x62434822)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/wifi_uart.o -MD)
-I (Drivers\WiFi_UART.h)(0x62431BF1)
-I (Include\common.h)(0x62429072)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x623FBECB)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035BEA0)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624275EF)
-I (Drivers\delay.h)(0x6244B562)
-I (Drivers\queue.h)(0x62421BF3)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624397D4)
+I (Drivers\delay.h)(0x6245187A)
+I (Drivers\queue.h)(0x624397D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6035BEA4)
-F (.\Drivers\Barcode_UART.c)(0x62301226)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/barcode_uart.o -MD)
-I (Drivers\Barcode_UART.h)(0x62300F3F)
-I (Include\common.h)(0x62429072)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x623FBECB)
+F (.\Drivers\Barcode_UART.c)(0x624397D4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cogie/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cogie/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/barcode_uart.o -MD)
+I (Drivers\Barcode_UART.h)(0x624397D4)
+I (Include\common.h)(0x624397D4)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C32DA)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035BEA0)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624275EF)
-I (Drivers\delay.h)(0x6244B562)
-F (.\Drivers\queue.c)(0x623E57EC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/queue.o -MD)
-I (Drivers\queue.h)(0x62421BF3)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624397D4)
+I (Drivers\delay.h)(0x6245187A)
+F (.\Drivers\queue.c)(0x624397D4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cogie/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cogie/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/queue.o -MD)
+I (Drivers\queue.h)(0x624397D4)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035BEA0)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x623FBECB)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624275EF)
-F (.\Drivers\delay.c)(0x62406E63)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/delay.o -MD)
-I (Include\common.h)(0x62429072)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x623FBECB)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C32DA)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624397D4)
+F (.\Drivers\delay.c)(0x624397D4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cogie/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cogie/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/delay.o -MD)
+I (Include\common.h)(0x624397D4)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C32DA)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035BEA0)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624275EF)
-I (Drivers\delay.h)(0x6244B562)
-F (RTE\Device\MKL25Z128xxx4\startup_MKL25Z4.s)(0x5644D36A)(--target=arm-arm-none-eabi -mcpu=cortex-m0plus -masm=auto -c-gdwarf-4 -Wa,armasm,--pd,"__EVAL SETA 1"-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 536" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"MKL25Z128xxx4 SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o ./objects/startup_mkl25z4.o)
-F (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.c)(0x5644D36A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/system_mkl25z4.o -MD)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624397D4)
+I (Drivers\delay.h)(0x6245187A)
+F (.\Drivers\GPIO.c)(0x6249E746)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cogie/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cogie/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/gpio.o -MD)
+I (Drivers\GPIO.h)(0x6249E75E)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C32DA)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035BEA0)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x623FBECB)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
-I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
-I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624275EF)
-F (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624275EF)()
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624397D4)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6035BEA4)
+F (RTE\Device\MKL25Z128xxx4\startup_MKL25Z4.s)(0x624397D4)(--target=arm-arm-none-eabi -mcpu=cortex-m0plus -masm=auto -c-gdwarf-4 -Wa,armasm,--pd,"__EVAL SETA 1"-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cogie/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cogie/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 536" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"MKL25Z128xxx4 SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o ./objects/startup_mkl25z4.o)
+F (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.c)(0x624397D4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cogie/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cogie/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/system_mkl25z4.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035BEA0)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x585C32DA)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
+I (C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624397D4)
+F (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624397D4)()
