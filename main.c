@@ -458,7 +458,7 @@ void Display_Item_info(void)
 		if(ShoppingList[i].ItemId !=0xFF)
 		{
 			
-
+			LCD_GoToLine(i);
 			sprintf(str_cat, "%d", (ShoppingList[i].ItemId)+1);
 			strcat(str_cat,".");
 			strcat(str_cat,&ShoppingList[i].ItemName[0]);
@@ -466,7 +466,7 @@ void Display_Item_info(void)
 			strcat(str_cat,&ShoppingList[i].itemPrice[0]);
 			
 			LCD_DisplayString(str_cat);
-			LCD_GoToLine(LCD_lineCnt++);
+
 		}
 	}
 
