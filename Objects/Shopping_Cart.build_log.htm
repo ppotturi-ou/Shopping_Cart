@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.36.0.0
 Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Jonatan Cogiel, Oakland University, LIC=----
+License Information: Pradeep Potturi, Oakland University, LIC=----
  
 Tool Versions:
 Toolchain:       MDK-Lite  Version: 5.36.0.0
@@ -21,13 +21,70 @@ Target DLL:      CMSIS_AGDI.dll V1.33.0.0
 Dialog DLL:      TARMCM1.DLL V1.14.4.0
  
 <h2>Project:</h2>
-C:\Users\cogie\Documents\GitHub\Shopping_Cart\Shopping_Cart.uvprojx
-Project File Date:  04/03/2022
+C:\Pradeep\Personal\USA\MS\OU\Embedded Systems Design\Project\Source_Code\Shopping_Cart\Shopping_Cart.uvprojx
+Project File Date:  04/04/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
-compiling Barcode_Driver.c...
+Drivers/I2C.c(16): warning: no previous extern declaration for non-static variable 'lock_detect' [-Wmissing-variable-declarations]
+int lock_detect=0;
+    ^
+Drivers/I2C.c(16): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int lock_detect=0;
+^
+Drivers/I2C.c(17): warning: no previous extern declaration for non-static variable 'i2c_lock' [-Wmissing-variable-declarations]
+int i2c_lock=0;
+    ^
+Drivers/I2C.c(17): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int i2c_lock=0;
+^
+Drivers/I2C.c(92): warning: '#pragma no_inline' is an ARM Compiler 5 extension, and is not supported by ARM Compiler 6 [-Warmcc-pragma-inline]
+#pragma no_inline 
+        ^
+Drivers/I2C.c(48): warning: no previous prototype for function 'i2c_busy' [-Wmissing-prototypes]
+void i2c_busy(void){
+     ^
+Drivers/I2C.c(48): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void i2c_busy(void){
+^
+static 
+Drivers/I2C.c(93): warning: no previous prototype for function 'i2c_wait' [-Wmissing-prototypes]
+void i2c_wait(void) {
+     ^
+Drivers/I2C.c(93): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void i2c_wait(void) {
+^
+static 
+Drivers/I2C.c(111): warning: '#pragma no_inline' is an ARM Compiler 5 extension, and is not supported by ARM Compiler 6 [-Warmcc-pragma-inline]
+#pragma no_inline 
+        ^
+Drivers/I2C.c(189): warning: '#pragma no_inline' is an ARM Compiler 5 extension, and is not supported by ARM Compiler 6 [-Warmcc-pragma-inline]
+#pragma no_inline 
+        ^
+Drivers/I2C.c(190): warning: unused parameter 'address' [-Wunused-parameter]
+void i2c_write_byte(uint8_t dev, uint8_t address, uint8_t data)
+                                         ^
+8 warnings generated.
+compiling I2C.c...
+compiling delay.c...
+Drivers/Barcode_UART.c(12): warning: In file included from...
+./Drivers/Barcode_UART.h(18): warning: non-portable path to file '<MKL25Z4.h>'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+#include <MKL25Z4.H>
+         ^~~~~~~~~~~
+         <MKL25Z4.h>
+Drivers/Barcode_UART.c(119): warning: no previous prototype for function 'UART0_IRQHandler' [-Wmissing-prototypes]
+void UART0_IRQHandler(void) {
+     ^
+Drivers/Barcode_UART.c(119): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void UART0_IRQHandler(void) {
+^
+static 
+Drivers/Barcode_UART.c(180): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+        return Q_Size(&BC_RxQ);
+        ~~~~~~ ^~~~~~~~~~~~~~~
+3 warnings generated.
+compiling Barcode_UART.c...
 Shopping_list_struct.c(15): warning: In file included from...
 ./Shopping_list_struct.h(14): warning: In file included from...
 ./Include\common.h(22): warning: 'NULL' macro redefined [-Wmacro-redefined]
@@ -38,8 +95,8 @@ C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stddef.h(84): note: previous definition i
         ^
 Shopping_list_struct.c(15): warning: In file included from...
 ./Shopping_list_struct.h(21): warning: padding struct 'struct shopping_list' with 3 bytes to align 'itemPrice_dec' [-Wpadded]
-          float  itemPrice_dec;
-                 ^
+          int  itemPrice_dec;
+               ^
 Shopping_list_struct.c(68): warning: unused variable 'ptr' [-Wunused-variable]
     struct shopping_list *ptr;
                           ^
@@ -48,184 +105,213 @@ void display(S_shopping_list  *front)
                                ^
 4 warnings generated.
 compiling Shopping_list_struct.c...
-main.c(17): warning: In file included from...
-./Middleware\lcd.h(54): warning: non-portable path to file '<MKL25Z4.h>'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+Drivers/queue.c(21): warning: implicit conversion changes signedness: 'volatile unsigned int' to 'int' [-Wsign-conversion]
+        return q->Size;
+        ~~~~~~ ~~~^~~~
+1 warning generated.
+compiling queue.c...
+Middleware/Barcode_Driver.c(12): warning: In file included from...
+./Middleware/Barcode_Driver.h(16): warning: In file included from...
+./Drivers\Barcode_UART.h(18): warning: non-portable path to file '<MKL25Z4.h>'; specified path differs in case from file name on disk [-Wnonportable-include-path]
 #include <MKL25Z4.H>
          ^~~~~~~~~~~
          <MKL25Z4.h>
-main.c(16): warning: In file included from...
-./Shopping_list_struct.h(21): warning: padding struct 'struct shopping_list' with 3 bytes to align 'itemPrice_dec' [-Wpadded]
-          float  itemPrice_dec;
-                 ^
-main.c(72): warning: unused variable 'test' [-Wunused-variable]
-  double test=0;
-         ^
-main.c(69): warning: unused variable 'price' [-Wunused-variable]
-        char itemname[10], price[7];
-                           ^
-main.c(69): warning: unused variable 'itemname' [-Wunused-variable]
-        char itemname[10], price[7];
-             ^
-main.c(21): warning: no previous extern declaration for non-static variable 'ShoppingList' [-Wmissing-variable-declarations]
-S_shopping_list ShoppingList[5];
-                ^
-main.c(21): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-S_shopping_list ShoppingList[5];
-^
-main.c(22): warning: unused variable 'ListCnt' [-Wunused-variable]
-static int ListCnt = 0;
-           ^
-7 warnings generated.
-compiling main.c...
+Middleware/Barcode_Driver.c(113): warning: implicitly declaring library function 'strncpy' with type 'char *(char *, const char *, unsigned int)' [-Wimplicit-function-declaration]
+        strncpy(BC_Dest,Barcode_Data,BARCODE_RX_SIZE-2);
+        ^
+Middleware/Barcode_Driver.c(113): note: include the header <string.h> or explicitly provide a declaration for 'strncpy'
+2 warnings generated.
+compiling Barcode_Driver.c...
 Middleware/WiFi_Driver.c(14): warning: In file included from...
 ./Middleware/lcd.h(54): warning: non-portable path to file '<MKL25Z4.h>'; specified path differs in case from file name on disk [-Wnonportable-include-path]
 #include <MKL25Z4.H>
          ^~~~~~~~~~~
          <MKL25Z4.h>
-Middleware/WiFi_Driver.c(108): warning: passing 'char [46]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
-                                        Send_String("AT+CWJAP=""\"""MySpectrumWiFi78-2G""\""",""\"""Kprexy2013""\"""\r\n");
-                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Middleware/WiFi_Driver.c(108): warning: passing 'char [11]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+                                                Send_String("AT+CIFSR\r\n");
+                                                            ^~~~~~~~~~~~~~
 ./Drivers\WiFi_UART.h(31): note: passing argument to parameter 'str' here
 void Send_String(uint8_t * str);
                            ^
-Middleware/WiFi_Driver.c(111): warning: passing 'char [15]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
-                                        res=read_data("WIFI CONNECTED"); 
-                                                      ^~~~~~~~~~~~~~~~
+Middleware/WiFi_Driver.c(110): warning: passing 'char [23]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+                                                res=read_data("+CIFSR:STAIP,""\"""0.0.0.0""\""); 
+                                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./Middleware/WiFi_Driver.h(42): note: passing argument to parameter 'str' here
 uint16_t read_data(uint8_t * str);
                              ^
-Middleware/WiFi_Driver.c(159): warning: passing 'char [41]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
-                                        Send_String("AT+CIPSTART=""\"""TCP""\""",""\"""192.168.1.186""\""",""5002""\r\n");
-                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Middleware/WiFi_Driver.c(119): warning: passing 'char [41]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+                                                        Send_String("AT+CWJAP=""\"""Pradeep iPhone""\""",""\"""Dimboo123$""\"""\r\n");
+                                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./Drivers\WiFi_UART.h(31): note: passing argument to parameter 'str' here
 void Send_String(uint8_t * str);
                            ^
-Middleware/WiFi_Driver.c(162): warning: passing 'char [3]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+Middleware/WiFi_Driver.c(121): warning: passing 'char [15]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+                                                        res=read_data("WIFI CONNECTED"); 
+                                                                      ^~~~~~~~~~~~~~~~
+./Middleware/WiFi_Driver.h(42): note: passing argument to parameter 'str' here
+uint16_t read_data(uint8_t * str);
+                             ^
+Middleware/WiFi_Driver.c(179): warning: passing 'char [39]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+                                        Send_String("AT+CIPSTART=""\"""TCP""\""",""\"""172.20.10.8""\""",""5002""\r\n");//iPhone WiFi
+                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./Drivers\WiFi_UART.h(31): note: passing argument to parameter 'str' here
+void Send_String(uint8_t * str);
+                           ^
+Middleware/WiFi_Driver.c(181): warning: passing 'char [3]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
                                         res=read_data("OK"); 
                                                       ^~~~
 ./Middleware/WiFi_Driver.h(42): note: passing argument to parameter 'str' here
 uint16_t read_data(uint8_t * str);
                              ^
-Middleware/WiFi_Driver.c(278): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+Middleware/WiFi_Driver.c(324): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
         size_str = strlen(str);
                           ^~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h(335): note: passing argument to parameter here
 extern _ARMABI size_t strlen(const char * /*s*/) __attribute__((__nonnull__(1)));
                                                ^
-Middleware/WiFi_Driver.c(278): warning: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+Middleware/WiFi_Driver.c(324): warning: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
         size_str = strlen(str);
                  ~ ^~~~~~~~~~~
-Middleware/WiFi_Driver.c(288): warning: assigning to 'uint8_t *' (aka 'unsigned char *') from 'char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+Middleware/WiFi_Driver.c(334): warning: assigning to 'uint8_t *' (aka 'unsigned char *') from 'char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
                 temp2 = &temp[i];
                       ^ ~~~~~~~~
-Middleware/WiFi_Driver.c(290): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+Middleware/WiFi_Driver.c(336): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
                 if(0 == strncmp(str,temp2,size_str))
                                 ^~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h(132): note: passing argument to parameter here
 extern _ARMABI int strncmp(const char * /*s1*/, const char * /*s2*/, size_t /*n*/) __attribute__((__nonnull__(1,2)));
                                               ^
-Middleware/WiFi_Driver.c(290): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+Middleware/WiFi_Driver.c(336): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
                 if(0 == strncmp(str,temp2,size_str))
                                     ^~~~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h(132): note: passing argument to parameter here
 extern _ARMABI int strncmp(const char * /*s1*/, const char * /*s2*/, size_t /*n*/) __attribute__((__nonnull__(1,2)));
                                                                    ^
-Middleware/WiFi_Driver.c(295): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+Middleware/WiFi_Driver.c(341): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
                 else if(0 == strncmp("ERROR",temp2,5))
                                              ^~~~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h(132): note: passing argument to parameter here
 extern _ARMABI int strncmp(const char * /*s1*/, const char * /*s2*/, size_t /*n*/) __attribute__((__nonnull__(1,2)));
                                                                    ^
-Middleware/WiFi_Driver.c(300): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+Middleware/WiFi_Driver.c(346): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
                 else if(0 == strncmp("FAIL",temp2,4))
                                             ^~~~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h(132): note: passing argument to parameter here
 extern _ARMABI int strncmp(const char * /*s1*/, const char * /*s2*/, size_t /*n*/) __attribute__((__nonnull__(1,2)));
                                                                    ^
-Middleware/WiFi_Driver.c(254): warning: unused variable 'res_size' [-Wunused-variable]
+Middleware/WiFi_Driver.c(300): warning: unused variable 'res_size' [-Wunused-variable]
         int i,buf_size=0,res_size;
                          ^
-Middleware/WiFi_Driver.c(335): warning: implicitly declaring library function 'sprintf' with type 'int (char *, const char *, ...)' [-Wimplicit-function-declaration]
-        sprintf(str, "%d", 42);
-        ^
-Middleware/WiFi_Driver.c(335): note: include the header <stdio.h> or explicitly provide a declaration for 'sprintf'
-Middleware/WiFi_Driver.c(339): warning: passing 'char [15]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
-        Send_String("AT+CIPSEND=4\r\n");
-                    ^~~~~~~~~~~~~~~~~~
+Middleware/WiFi_Driver.c(389): warning: passing 'char [16]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+        Send_String("AT+CIPSEND=12\r\n");
+                    ^~~~~~~~~~~~~~~~~~~
 ./Drivers\WiFi_UART.h(31): note: passing argument to parameter 'str' here
 void Send_String(uint8_t * str);
                            ^
-Middleware/WiFi_Driver.c(342): warning: passing 'char [3]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+Middleware/WiFi_Driver.c(392): warning: passing 'char [3]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
         server_res=read_data("OK");
                              ^~~~
-Middleware/WiFi_Driver.c(252): note: passing argument to parameter 'str' here
+Middleware/WiFi_Driver.c(298): note: passing argument to parameter 'str' here
 uint16_t read_data(uint8_t * str)
                              ^
-Middleware/WiFi_Driver.c(347): warning: passing 'char [8]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+Middleware/WiFi_Driver.c(398): warning: passing 'char [8]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
                 server_res=read_data("SEND OK");
                                      ^~~~~~~~~
-Middleware/WiFi_Driver.c(252): note: passing argument to parameter 'str' here
+Middleware/WiFi_Driver.c(298): note: passing argument to parameter 'str' here
 uint16_t read_data(uint8_t * str)
                              ^
-Middleware/WiFi_Driver.c(352): warning: passing 'char [6]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
-                        server_res=read_data_from_Server("+IPD,");
+Middleware/WiFi_Driver.c(404): warning: passing 'char [6]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+                        server_res=read_data_from_Server("+IPD,",&Barcode_ID[0],&name[0],&price[0]);
                                                          ^~~~~~~
 ./Middleware/WiFi_Driver.h(43): note: passing argument to parameter 'str' here
-uint16_t read_data_from_Server(uint8_t * str);
+uint16_t read_data_from_Server(uint8_t * str,uint8_t Check_Barcode_ID[], char name[],char price[]);
                                          ^
-Middleware/WiFi_Driver.c(331): warning: unused parameter 'id' [-Wunused-parameter]
-void Get_Item_info(uint8_t *Barcode_ID[], int *id, char *name[],char *price[],float *itemPriceDec)
-                                               ^
-Middleware/WiFi_Driver.c(331): warning: unused parameter 'name' [-Wunused-parameter]
-void Get_Item_info(uint8_t *Barcode_ID[], int *id, char *name[],char *price[],float *itemPriceDec)
-                                                         ^
-Middleware/WiFi_Driver.c(331): warning: unused parameter 'price' [-Wunused-parameter]
-void Get_Item_info(uint8_t *Barcode_ID[], int *id, char *name[],char *price[],float *itemPriceDec)
-                                                                      ^
-Middleware/WiFi_Driver.c(331): warning: unused parameter 'itemPriceDec' [-Wunused-parameter]
-void Get_Item_info(uint8_t *Barcode_ID[], int *id, char *name[],char *price[],float *itemPriceDec)
-                                                                                     ^
-Middleware/WiFi_Driver.c(388): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+Middleware/WiFi_Driver.c(381): warning: unused variable 'tem_dec' [-Wunused-variable]
+        int tem_dec=0;
+            ^
+Middleware/WiFi_Driver.c(380): warning: unused variable 'str' [-Wunused-variable]
+        char str[15];
+             ^
+Middleware/WiFi_Driver.c(432): warning: non-void function does not return a value in all control paths [-Wreturn-type]
+}
+^
+Middleware/WiFi_Driver.c(463): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
         size_str = strlen(str);
                           ^~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h(335): note: passing argument to parameter here
 extern _ARMABI size_t strlen(const char * /*s*/) __attribute__((__nonnull__(1)));
                                                ^
-Middleware/WiFi_Driver.c(388): warning: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+Middleware/WiFi_Driver.c(463): warning: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
         size_str = strlen(str);
                  ~ ^~~~~~~~~~~
-Middleware/WiFi_Driver.c(398): warning: assigning to 'uint8_t *' (aka 'unsigned char *') from 'char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+Middleware/WiFi_Driver.c(473): warning: assigning to 'uint8_t *' (aka 'unsigned char *') from 'char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
                 temp2 = &temp[i];
                       ^ ~~~~~~~~
-Middleware/WiFi_Driver.c(400): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+Middleware/WiFi_Driver.c(475): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
                 if(0 == strncmp(str,temp2,size_str))
                                 ^~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h(132): note: passing argument to parameter here
 extern _ARMABI int strncmp(const char * /*s1*/, const char * /*s2*/, size_t /*n*/) __attribute__((__nonnull__(1,2)));
                                               ^
-Middleware/WiFi_Driver.c(400): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+Middleware/WiFi_Driver.c(475): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
                 if(0 == strncmp(str,temp2,size_str))
                                     ^~~~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h(132): note: passing argument to parameter here
 extern _ARMABI int strncmp(const char * /*s1*/, const char * /*s2*/, size_t /*n*/) __attribute__((__nonnull__(1,2)));
                                                                    ^
-Middleware/WiFi_Driver.c(405): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+Middleware/WiFi_Driver.c(481): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
                 else if(0 == strncmp("ERROR",temp2,5))
                                              ^~~~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h(132): note: passing argument to parameter here
 extern _ARMABI int strncmp(const char * /*s1*/, const char * /*s2*/, size_t /*n*/) __attribute__((__nonnull__(1,2)));
                                                                    ^
-Middleware/WiFi_Driver.c(410): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+Middleware/WiFi_Driver.c(487): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
                 else if(0 == strncmp("FAIL",temp2,4))
                                             ^~~~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h(132): note: passing argument to parameter here
 extern _ARMABI int strncmp(const char * /*s1*/, const char * /*s2*/, size_t /*n*/) __attribute__((__nonnull__(1,2)));
                                                                    ^
-Middleware/WiFi_Driver.c(369): warning: unused variable 'res_size' [-Wunused-variable]
-        int i,buf_size=0,res_size;
+Middleware/WiFi_Driver.c(525): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+        size_str = strlen(Check_Barcode_ID);
+                          ^~~~~~~~~~~~~~~~
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h(335): note: passing argument to parameter here
+extern _ARMABI size_t strlen(const char * /*s*/) __attribute__((__nonnull__(1)));
+                                               ^
+Middleware/WiFi_Driver.c(525): warning: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+        size_str = strlen(Check_Barcode_ID);
+                 ~ ^~~~~~~~~~~~~~~~~~~~~~~~
+Middleware/WiFi_Driver.c(526): warning: passing 'uint8_t *' (aka 'unsigned char *') to parameter of type 'const char *' converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+        if(0 != strncmp(Check_Barcode_ID,res_id,size_str))
+                        ^~~~~~~~~~~~~~~~
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h(132): note: passing argument to parameter here
+extern _ARMABI int strncmp(const char * /*s1*/, const char * /*s2*/, size_t /*n*/) __attribute__((__nonnull__(1,2)));
+                                              ^
+Middleware/WiFi_Driver.c(443): warning: unused variable 'res_size' [-Wunused-variable]
+        int i,buf_size=0,res_size,str_cnt=0;
                          ^
-30 warnings generated.
+Middleware/WiFi_Driver.c(571): warning: passing 'char [14]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+        Send_String("AT+CIPCLOSE\r\n");
+                    ^~~~~~~~~~~~~~~~~
+./Drivers\WiFi_UART.h(31): note: passing argument to parameter 'str' here
+void Send_String(uint8_t * str);
+                           ^
+Middleware/WiFi_Driver.c(573): warning: passing 'char [3]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+        read_data("OK");        
+                  ^~~~
+Middleware/WiFi_Driver.c(298): note: passing argument to parameter 'str' here
+uint16_t read_data(uint8_t * str)
+                             ^
+35 warnings generated.
 compiling WiFi_Driver.c...
+Drivers/GPIO.c(14): warning: In file included from...
+./Include\common.h(22): warning: 'NULL' macro redefined [-Wmacro-redefined]
+#define NULL ((void*)0)
+        ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h(61): note: previous definition is here
+#define NULL 0                   /* see <stddef.h> */
+        ^
+1 warning generated.
+compiling GPIO.c...
 Middleware/lcd.c(76): warning: In file included from...
 ./Middleware/lcd.h(54): warning: non-portable path to file '<MKL25Z4.h>'; specified path differs in case from file name on disk [-Wnonportable-include-path]
 #include <MKL25Z4.H>
@@ -243,52 +329,62 @@ Middleware/lcd.c(77): warning: In file included from...
 ./Drivers\stdutils.h(132): note: previous definition is here
 #define NULL 0
         ^
-Middleware/lcd.c(87): warning: no previous extern declaration for non-static variable 'ARR_LcdLineNumAddress_U8' [-Wmissing-variable-declarations]
-uint8_t ARR_LcdLineNumAddress_U8[]={0x80,0xc0,0x90,0xd0};
+Middleware/lcd.c(77): warning: In file included from...
+./Drivers\i2c.h(15): warning: In file included from...
+./Include\common.h(23): warning: 'TRUE' macro redefined [-Wmacro-redefined]
+#define TRUE 1
         ^
-Middleware/lcd.c(87): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-uint8_t ARR_LcdLineNumAddress_U8[]={0x80,0xc0,0x90,0xd0};
-^
-Middleware/lcd.c(536): warning: implicit conversion loses integer precision: 'uint32_t' (aka 'unsigned int') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+./Drivers\stdutils.h(140): note: previous definition is here
+#define TRUE               0x01u
+        ^
+Middleware/lcd.c(77): warning: In file included from...
+./Drivers\i2c.h(15): warning: In file included from...
+./Include\common.h(24): warning: 'FALSE' macro redefined [-Wmacro-redefined]
+#define FALSE 0
+        ^
+./Drivers\stdutils.h(136): note: previous definition is here
+#define FALSE              0x00u
+        ^
+Middleware/lcd.c(539): warning: implicit conversion loses integer precision: 'uint32_t' (aka 'unsigned int') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
                 a[i]=util_GetMod32(v_number_u32,v_numericSystem_u8);
                     ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./Drivers\stdutils.h(225): note: expanded from macro 'util_GetMod32'
 #define util_GetMod32(dividend,divisor) (uint32_t)(dividend - (divisor * (uint32_t)(dividend/divisor)))
                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Middleware/lcd.c(602): warning: implicit conversion turns floating-point number into integer: 'double' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
+Middleware/lcd.c(605): warning: implicit conversion turns floating-point number into integer: 'double' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
     v_temp_u32 = v_floatNum_f32 * 100;
                ~ ~~~~~~~~~~~~~~~^~~~~
-Middleware/lcd.c(693): warning: implicit conversion loses integer precision: 'int' to 'char' [-Wimplicit-int-conversion]
+Middleware/lcd.c(696): warning: implicit conversion loses integer precision: 'int' to 'char' [-Wimplicit-int-conversion]
                 ch = va_arg(argp, int);
                    ~ ^~~~~~~~~~~~~~~~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h(43): note: expanded from macro 'va_arg'
   #define va_arg(ap, type)    __builtin_va_arg(ap, type)
                               ^~~~~~~~~~~~~~~~~~~~~~~~~~
-Middleware/lcd.c(698): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+Middleware/lcd.c(701): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
                 v_num_s16 = va_arg(argp, int);
                           ~ ^~~~~~~~~~~~~~~~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h(43): note: expanded from macro 'va_arg'
   #define va_arg(ap, type)    __builtin_va_arg(ap, type)
                               ^~~~~~~~~~~~~~~~~~~~~~~~~~
-Middleware/lcd.c(704): warning: implicit conversion changes signedness: 'int16_t' (aka 'short') to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+Middleware/lcd.c(707): warning: implicit conversion changes signedness: 'int16_t' (aka 'short') to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
                 LCD_DisplayNumber(C_DECIMAL_U8,v_num_s16,v_numOfDigitsToDisp_u8);
                 ~~~~~~~~~~~~~~~~~              ^~~~~~~~~
-Middleware/lcd.c(714): warning: implicit conversion changes signedness: 'int32_t' (aka 'int') to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+Middleware/lcd.c(717): warning: implicit conversion changes signedness: 'int32_t' (aka 'int') to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
                 LCD_DisplayNumber(C_DECIMAL_U8,v_num_s32,v_numOfDigitsToDisp_u8);              
                 ~~~~~~~~~~~~~~~~~              ^~~~~~~~~
-Middleware/lcd.c(718): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+Middleware/lcd.c(721): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
                 v_num_u16 = va_arg(argp, int);
                           ~ ^~~~~~~~~~~~~~~~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h(43): note: expanded from macro 'va_arg'
   #define va_arg(ap, type)    __builtin_va_arg(ap, type)
                               ^~~~~~~~~~~~~~~~~~~~~~~~~~
-Middleware/lcd.c(728): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+Middleware/lcd.c(731): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
                 v_num_u16 = va_arg(argp, int);
                           ~ ^~~~~~~~~~~~~~~~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h(43): note: expanded from macro 'va_arg'
   #define va_arg(ap, type)    __builtin_va_arg(ap, type)
                               ^~~~~~~~~~~~~~~~~~~~~~~~~~
-Middleware/lcd.c(739): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+Middleware/lcd.c(742): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
                 v_num_u16 = va_arg(argp, int);
                           ~ ^~~~~~~~~~~~~~~~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h(43): note: expanded from macro 'va_arg'
@@ -300,60 +396,8 @@ uint8_t v_LcdTrackLineNum_U8;         //Variable to track the line numbers
 Middleware/lcd.c(84): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 uint8_t v_LcdTrackLineNum_U8;         //Variable to track the line numbers
 ^
-Middleware/lcd.c(85): warning: no previous extern declaration for non-static variable 'v_LcdTrackCursorPos_U8' [-Wmissing-variable-declarations]
-uint8_t v_LcdTrackCursorPos_U8;       //Variable to track the cursor
-        ^
-Middleware/lcd.c(85): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-uint8_t v_LcdTrackCursorPos_U8;       //Variable to track the cursor
-^
-Middleware/lcd.c(86): warning: no previous extern declaration for non-static variable 'LCDConfig' [-Wmissing-variable-declarations]
-LcdConfig_st LCDConfig;               //Structure containing the selected LCD Configuration
-             ^
-Middleware/lcd.c(86): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-LcdConfig_st LCDConfig;               //Structure containing the selected LCD Configuration
-^
-16 warnings generated.
+15 warnings generated.
 compiling lcd.c...
-Drivers/I2C.c(16): warning: no previous extern declaration for non-static variable 'lock_detect' [-Wmissing-variable-declarations]
-int lock_detect=0;
-    ^
-Drivers/I2C.c(16): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int lock_detect=0;
-^
-Drivers/I2C.c(17): warning: no previous extern declaration for non-static variable 'i2c_lock' [-Wmissing-variable-declarations]
-int i2c_lock=0;
-    ^
-Drivers/I2C.c(17): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int i2c_lock=0;
-^
-Drivers/I2C.c(90): warning: '#pragma no_inline' is an ARM Compiler 5 extension, and is not supported by ARM Compiler 6 [-Warmcc-pragma-inline]
-#pragma no_inline 
-        ^
-Drivers/I2C.c(46): warning: no previous prototype for function 'i2c_busy' [-Wmissing-prototypes]
-void i2c_busy(void){
-     ^
-Drivers/I2C.c(46): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void i2c_busy(void){
-^
-static 
-Drivers/I2C.c(91): warning: no previous prototype for function 'i2c_wait' [-Wmissing-prototypes]
-void i2c_wait(void) {
-     ^
-Drivers/I2C.c(91): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void i2c_wait(void) {
-^
-static 
-Drivers/I2C.c(109): warning: '#pragma no_inline' is an ARM Compiler 5 extension, and is not supported by ARM Compiler 6 [-Warmcc-pragma-inline]
-#pragma no_inline 
-        ^
-Drivers/I2C.c(187): warning: '#pragma no_inline' is an ARM Compiler 5 extension, and is not supported by ARM Compiler 6 [-Warmcc-pragma-inline]
-#pragma no_inline 
-        ^
-Drivers/I2C.c(188): warning: unused parameter 'address' [-Wunused-parameter]
-void i2c_write_byte(uint8_t dev, uint8_t address, uint8_t data)
-                                         ^
-8 warnings generated.
-compiling I2C.c...
 Drivers/WiFi_UART.c(37): warning: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
         UART2->D = ch;
                  ~ ^~
@@ -375,32 +419,53 @@ Drivers/WiFi_UART.c(195): warning: implicit conversion changes signedness: 'int'
         ~~~~~~ ^~~~~~~~~~~~~~~~~~~~~~
 5 warnings generated.
 compiling WiFi_UART.c...
-compiling Barcode_UART.c...
-Drivers/queue.c(21): warning: implicit conversion changes signedness: 'volatile unsigned int' to 'int' [-Wsign-conversion]
-        return q->Size;
-        ~~~~~~ ~~~^~~~
-1 warning generated.
-compiling queue.c...
-compiling delay.c...
-Drivers/GPIO.c(34): warning: implicit declaration of function 'Delay' is invalid in C99 [-Wimplicit-function-declaration]
-        Delay(100);
-        ^
-Drivers/GPIO.c(81): warning: implicit declaration of function 'Delay' is invalid in C99 [-Wimplicit-function-declaration]
-                                Delay(50);
-                                ^
-Drivers/GPIO.c(94): warning: implicit declaration of function 'Delay' is invalid in C99 [-Wimplicit-function-declaration]
-                                Delay(50);
-                                ^
-Drivers/GPIO.c(107): warning: implicit declaration of function 'Delay' is invalid in C99 [-Wimplicit-function-declaration]
-                                Delay(50);
-                                ^
-4 warnings generated.
-compiling GPIO.c...
-assembling startup_MKL25Z4.s...
+main.c(13): warning: In file included from...
+./Middleware\Barcode_Driver.h(16): warning: In file included from...
+./Drivers\Barcode_UART.h(18): warning: non-portable path to file '<MKL25Z4.h>'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+#include <MKL25Z4.H>
+         ^~~~~~~~~~~
+         <MKL25Z4.h>
+main.c(17): warning: In file included from...
+./Middleware\lcd.h(54): warning: non-portable path to file '<MKL25Z4.h>'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+#include <MKL25Z4.H>
+         ^~~~~~~~~~~
+         <MKL25Z4.h>
+main.c(16): warning: In file included from...
+./Shopping_list_struct.h(21): warning: padding struct 'struct shopping_list' with 3 bytes to align 'itemPrice_dec' [-Wpadded]
+          int  itemPrice_dec;
+               ^
+main.c(305): warning: passing 'char *' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+                                        ReadData_Server_Res = Get_Item_info(&ItemBarcode[0],&itemname[0],&price[0],&price_dec); 
+                                                                            ^~~~~~~~~~~~~~~
+./Middleware\WiFi_Driver.h(44): note: passing argument to parameter 'Barcode_ID' here
+uint16_t Get_Item_info(uint8_t Barcode_ID[12], char name[],char price[],int* itemPriceDec);
+                               ^
+main.c(463): warning: implicitly declaring library function 'strcat' with type 'char *(char *, const char *)' [-Wimplicit-function-declaration]
+                        strcat(str_cat,".");
+                        ^
+main.c(463): note: include the header <string.h> or explicitly provide a declaration for 'strcat'
+main.c(469): warning: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+                        LCD_GoToLine(LCD_lineCnt++);
+                        ~~~~~~~~~~~~ ~~~~~~~~~~~^~
+main.c(452): warning: unused variable 'strid' [-Wunused-variable]
+        char str_cat[20],strid[5];
+                         ^
+main.c(24): warning: no previous extern declaration for non-static variable 'ShoppingList' [-Wmissing-variable-declarations]
+S_shopping_list ShoppingList[5];
+                ^
+main.c(24): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+S_shopping_list ShoppingList[5];
+^
+main.c(28): warning: unused variable 'test_chr' [-Wunused-variable]
+static char test_chr='\0';
+            ^
+9 warnings generated.
+compiling main.c...
 compiling system_MKL25Z4.c...
+assembling startup_MKL25Z4.s...
 linking...
-Program Size: Code=6952 RO-data=728 RW-data=8 ZI-data=1584  
-".\Objects\Shopping_Cart.axf" - 0 Error(s), 75 Warning(s).
+Program Size: Code=19984 RO-data=1548 RW-data=20 ZI-data=2672  
+".\Objects\Shopping_Cart.axf" - 0 Error(s), 83 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -419,17 +484,17 @@ Package Vendor: Keil
 <h2>Collection of Component include folders:</h2>
   .\RTE\Device\MKL25Z128xxx4
   .\RTE\_Target_1
-  C:\Users\cogie\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
-  C:\Users\cogie\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include
+  C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
+  C:\Users\cjp3tq\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.5.0
 
    * Component: Keil::Device:Startup:2.5.0
+      Source file:   Device\Source\ARM\startup_MKL25Z4.s
       Include file:  Device\Source\system_MKL25Z4.h
       Source file:   Device\Source\system_MKL25Z4.c
-      Source file:   Device\Source\ARM\startup_MKL25Z4.s
 Build Time Elapsed:  00:00:03
 </pre>
 </body>

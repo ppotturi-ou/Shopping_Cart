@@ -12,10 +12,13 @@ ESP WiFi Driver file
 #include "WiFi_Driver.h"
 #include <string.h>
 #include "lcd.h"
+#include "GPIO.h"
 
 static WiFi_FSM_States WiFi_State = WiFi_Init;
 static int WiFi_Init_State = ERROR;
-static int WiFi_Status = ERROR;
+static int WiFi_SelfTest_Status = ERROR;
+static int WiFi_Connection_Status = ERROR;
+static int Server_Status = ERROR;
 
 /**********************************
 Function: Init_WiFi_Driver
@@ -67,7 +70,7 @@ void Run_WiFi_Driver(void)
 						// Reset Fail Count
 						FailCnt=0;
 						// Set the status to let application know
-						WiFi_Status = WiFi_SelfTest_Sucess;
+						WiFi_SelfTest_Status = WiFi_SelfTest_Sucess;
 						
 						// Goto next state
 						WiFi_State = WiFi_Connect;
@@ -81,7 +84,7 @@ void Run_WiFi_Driver(void)
 							//Log Error, like LED RED
 							// Turn ON LED RED
 							// Display on LCD
-							WiFi_Status = WiFi_SelfTest_Fail;
+							WiFi_SelfTest_Status = WiFi_SelfTest_Fail;
 						}
 					}
 					else if(res == WiFi_RES_ERROR)
@@ -93,7 +96,7 @@ void Run_WiFi_Driver(void)
 							//Log Error, like LED RED
 							// Turn ON LED RED
 							// Display on LCD		
-							WiFi_Status = WiFi_SelfTest_Fail;						
+							WiFi_SelfTest_Status = WiFi_SelfTest_Fail;						
 						}
 					}
 				}
@@ -102,51 +105,65 @@ void Run_WiFi_Driver(void)
 			case WiFi_Connect:
 				if(Return_App_FSM_State() == Main_menu)
 				{
-					LCD_Clear();
-					LCD_GoToLine(0);
-					LCD_DisplayString("Connecting to WiFi");
-					Send_String("AT+CWJAP=""\"""MySpectrumWiFi78-2G""\""",""\"""Kprexy2013""\"""\r\n");
-					//Send_String("AT+CWJAP=""\"""Pradeep's iPhone""\""",""\"""Dimboo123$""\"""\r\n");
-					//Send_String("AT+CWJAP=""\"""WAVLINK-N""\""",""\"""Shopping123$""\"""\r\n");
-					Delay(2000);
-					res=read_data("WIFI CONNECTED"); 
-					if(res == WiFi_RES_SUCCESS)
-					{
-						// Reset Fail Count
-						FailCnt=0;
-						WiFi_Status = WiFi_Connection_Sucess;
-						WiFi_State = WiFi_Connect_Server;
-					}
-					else if(res == WiFi_RES_FAIL)
-					{
-						//Stay in this state and try again
-						FailCnt++;
-						if (FailCnt >= 1)
-						{
-							//Log WiFi connection Error, 
-							// Turn ON LED RED
-							// Display on LCD
-							WiFi_Status = WiFi_Connection_Fail;
-							//WiFi_State = WiFi_ReConnect;
-							WiFi_State = WiFi_Invalid_State;
+						Send_String("AT+CIFSR\r\n");
+						Delay(500);
+						res=read_data("+CIFSR:STAIP,""\"""0.0.0.0""\""); 
+						if(res == WiFi_RES_SUCCESS)// WiFi not connected
+						{	
+							LCD_Clear();
+							LCD_GoToLine(0);
+							LCD_DisplayString("Connecting to WiFi");
+							//Send_String("AT+CWJAP=""\"""MySpectrumWiFi78-2G""\""",""\"""Kprexy2013""\"""\r\n");
+							//Send_String("AT+CWJAP=""\"""Pradeep iPhone""\""",""\"""Dimboo123$""\"""\r\n");
+							//Send_String("AT+CWJAP=""\"""WAVLINK-N""\""",""\"""Shopping123$""\"""\r\n");
+							Send_String("AT+CWJAP=""\"""Pradeep iPhone""\""",""\"""Dimboo123$""\"""\r\n");
+							Delay(2000);
+							res=read_data("WIFI CONNECTED"); 
+							if(res == WiFi_RES_SUCCESS)
+							{
+								// Reset Fail Count
+								FailCnt=0;
+								WiFi_Connection_Status = WiFi_Connection_Sucess;
+								WiFi_State = WiFi_Connect_Server;
+							}
+							else if((res == WiFi_RES_FAIL)|(res == 0xFF))
+							{
+								//Stay in this state and try again
+								FailCnt++;
+								if (FailCnt >= 1)
+								{
+									//Log WiFi connection Error, 
+									// Turn ON LED RED
+									// Display on LCD
+									WiFi_Connection_Status = WiFi_Connection_Fail;
+									//WiFi_State = WiFi_ReConnect;
+									WiFi_State = WiFi_Invalid_State;
+								}
+							}
+							else if((res == WiFi_RES_ERROR)|(res == 0xFF))
+							{
+								//Stay in this state and try again
+								FailCnt++;
+								if (FailCnt >= 1)
+								{
+									//Log Error, like LED RED
+									//WiFi_State = WiFi_ReConnect;
+									WiFi_Connection_Status = WiFi_Connection_Fail;
+									WiFi_State = WiFi_Invalid_State;
+								}
+							}
+							else
+							{
+								Delay(4000);
+							}
 						}
-					}
-					else if(res == WiFi_RES_ERROR)
-					{
-						//Stay in this state and try again
-						FailCnt++;
-						if (FailCnt >= 1)
+						else
 						{
-							//Log Error, like LED RED
-							//WiFi_State = WiFi_ReConnect;
-							WiFi_Status = WiFi_Connection_Fail;
-							WiFi_State = WiFi_Invalid_State;
+								// Reset Fail Count
+								FailCnt=0;
+								WiFi_Connection_Status = WiFi_Connection_Sucess;
+								WiFi_State = WiFi_Connect_Server;
 						}
-					}
-					else
-					{
-						Delay(4000);
-					}
 				}
 			break;
 
@@ -157,18 +174,19 @@ void Run_WiFi_Driver(void)
 					LCD_GoToLine(0);
 					LCD_DisplayString("Connecting to Server");
 					// Connect Server in TCP protocol using IP and Port
-					Send_String("AT+CIPSTART=""\"""TCP""\""",""\"""192.168.1.186""\""",""5002""\r\n");
+					//Send_String("AT+CIPSTART=""\"""TCP""\""",""\"""192.168.1.186""\""",""5002""\r\n");
 					//Send_String("AT+CIPSTART=""\"""TCP""\""",""\"""192.168.10.109""\""",""5002""\r\n");
+					Send_String("AT+CIPSTART=""\"""TCP""\""",""\"""172.20.10.8""\""",""5002""\r\n");//iPhone WiFi
 					Delay(1000);
 					res=read_data("OK"); 
 					if(res == WiFi_RES_SUCCESS)
 					{
 						// Reset Fail Count
 						FailCnt=0;
-						WiFi_Status = WiFi_ServerConnection_Sucess;
+						Server_Status = WiFi_ServerConnection_Sucess;
 						WiFi_State = WiFi_ReConnect;
 					}
-					else if(res == WiFi_RES_FAIL)
+					else if((res == WiFi_RES_FAIL)|(res == 0xFF))
 					{
 						//Stay in this state and try again
 						FailCnt++;
@@ -177,18 +195,18 @@ void Run_WiFi_Driver(void)
 							//Log WiFi connection Error, 
 							// Turn ON LED RED
 							// Display on LCD
-							WiFi_Status = WiFi_ServerConnection_Fail;
+							Server_Status = WiFi_ServerConnection_Fail;
 							WiFi_State = WiFi_ReConnect;
 						}
 					}
-					else if(res == WiFi_RES_ERROR)
+					else if((res == WiFi_RES_ERROR)|(res == 0xFF))
 					{
 						//Stay in this state and try again
 						FailCnt++;
 						if (FailCnt >= 1)
 						{
 							//Log Error, like LED RED
-							WiFi_Status = WiFi_ServerConnection_Fail;
+							Server_Status = WiFi_ServerConnection_Fail;
 							WiFi_State = WiFi_ReConnect;
 						}
 					}
@@ -204,7 +222,7 @@ void Run_WiFi_Driver(void)
 				{
 					// Go to connect state
 					WiFi_State = WiFi_Connect;
-					WiFi_Status= OK;
+					//WiFi_Connection_Status = ERROR;
 					FailCnt = 0;
 				}
 
@@ -215,7 +233,10 @@ void Run_WiFi_Driver(void)
 			break;			
 	
 	}
-
+	if(Return_App_FSM_State() == Redo_Self_Test)
+	{
+		WiFi_State = WiFi_SelfTest;
+	}
 }
 
 /**********************************
@@ -240,7 +261,31 @@ Return:
 **********************************/
 int Get_WiFi_SelfTest_Status(void)
 {
-	return WiFi_Status;	
+	return WiFi_SelfTest_Status;	
+}
+
+/**********************************
+Function: Get_WiFi_SelfTest_Status
+Description:
+Parmeters:
+Return:
+
+**********************************/
+int Get_WiFi_Connection_Status(void)
+{
+	return WiFi_Connection_Status;	
+}
+
+/**********************************
+Function: Get_WiFi_SelfTest_Status
+Description:
+Parmeters:
+Return:
+
+**********************************/
+int Get_Server_Connection_Status(void)
+{
+	return Server_Status;	
 }
 
 /**********************************
@@ -348,6 +393,7 @@ uint16_t Get_Item_info(uint8_t Barcode_ID[12], char name[],char price[],int* ite
 	if(server_res == WiFi_RES_SUCCESS)
 	{
 		Send_String(&Barcode_ID[0]);
+		LED_ctrl(Y_LED,LED_ON);
 		Delay(50);
 		server_res=read_data("SEND OK");
 		if(server_res == WiFi_RES_SUCCESS)
@@ -511,6 +557,20 @@ uint16_t read_data_from_Server(uint8_t * str, uint8_t Check_Barcode_ID[], char n
 	return Server_res;
 
 }
-	
+
+/**********************************
+Function: Disconnect_Server
+Description:
+Parmeters:
+Return:
+
+**********************************/
+
+void Disconnect_Server(void)
+{
+	Send_String("AT+CIPCLOSE\r\n");
+	Delay(500);
+	read_data("OK");	
+}
 /** EOF ****/
 

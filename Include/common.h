@@ -26,12 +26,13 @@ Lab#3 common header file
 typedef enum  
 {
 	Init = 0,
-	Self_Test = 1,
-  Main_menu = 2,
-	Shopping_menu = 3,
-	Scanning = 4,
-	Shopping_Complete = 5,
-	Invalid_State = 6,
+	Self_Test = 10,
+  Main_menu = 20,
+	Shopping_menu = 30,
+	Scanning = 40,
+	Shopping_Complete = 50,
+	Redo_Self_Test = 60,
+	Invalid_State = 70,
 }SC_FSM_States;
 
 extern SC_FSM_States Return_App_FSM_State(void);

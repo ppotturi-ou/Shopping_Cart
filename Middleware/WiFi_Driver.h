@@ -42,6 +42,9 @@ int Get_WiFi_SelfTest_Status(void);
 uint16_t read_data(uint8_t * str);
 uint16_t read_data_from_Server(uint8_t * str,uint8_t Check_Barcode_ID[], char name[],char price[]);
 uint16_t Get_Item_info(uint8_t Barcode_ID[12], char name[],char price[],int* itemPriceDec);
+void Disconnect_Server(void);
+int Get_WiFi_Connection_Status(void);
+int Get_Server_Connection_Status(void);
 
 #endif //_WIFIDRIVER_H
 /** EOF ****/

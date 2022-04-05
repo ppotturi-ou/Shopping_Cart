@@ -1,4 +1,17 @@
+/****************************************************
+Project: Shopping Cart with Built in billing system
+Members: Jonatan Cogiel
+
+Course: ECE 5721/4721 Winter 2022
+Oakland University
+
+Description:
+GPIO driver file
+
+****************************************************/
+
 #include "GPIO.h"
+#include "common.h"
 
 
 void Init_GPIO(void)
@@ -15,30 +28,31 @@ void Init_GPIO(void)
 	PORTC->PCR[Y_LED] &= ~PORT_PCR_MUX_MASK;
 	PORTC->PCR[Y_LED] |= PORT_PCR_MUX(1);
 	
-	PORTC->PCR[SW1] &= ~PORT_PCR_MUX_MASK;
-	PORTC->PCR[SW1] |= PORT_PCR_MUX(1);
-	PORTC->PCR[SW2] &= ~PORT_PCR_MUX_MASK;
-	PORTC->PCR[SW2] |= PORT_PCR_MUX(1);
-	PORTC->PCR[SW3] &= ~PORT_PCR_MUX_MASK;
-	PORTC->PCR[SW3] |= PORT_PCR_MUX(1);
+	PORTC->PCR[SW_MENU] &= ~PORT_PCR_MUX_MASK;
+	PORTC->PCR[SW_MENU] |= PORT_PCR_MUX(1);
+	PORTC->PCR[SW_UP] &= ~PORT_PCR_MUX_MASK;
+	PORTC->PCR[SW_UP] |= PORT_PCR_MUX(1);
+	PORTC->PCR[SW_DOWN] &= ~PORT_PCR_MUX_MASK;
+	PORTC->PCR[SW_DOWN] |= PORT_PCR_MUX(1);
 	
 	//LED as output
 	PTC->PDDR |= MASK(R_LED)|MASK(G_LED)|MASK(B_LED)|MASK(Y_LED);
 	//btn inputs
-	PTC->PDDR &= ~(MASK(SW1)|MASK(SW2)|MASK(SW3));
+	PTC->PDDR &= ~(MASK(SW_MENU)|MASK(SW_UP)|MASK(SW_DOWN));
 	
-	led(R_LED, on);
-	led(Y_LED, on);
-	led(G_LED, on);
-	led(B_LED, on);	
+	// LED's Self-Test
+	LED_ctrl(R_LED, LED_ON);
+	LED_ctrl(Y_LED, LED_ON);
+	LED_ctrl(G_LED, LED_ON);
+	LED_ctrl(B_LED, LED_ON);	
 	Delay(100);
-	led(R_LED, off);
-	led(Y_LED, off);
-	led(G_LED, off);
-	led(B_LED, off);
+	LED_ctrl(R_LED, LED_OFF);
+	LED_ctrl(Y_LED, LED_OFF);
+	LED_ctrl(G_LED, LED_OFF);
+	LED_ctrl(B_LED, LED_OFF);
 }
 
-void led(int X_LED, int state)
+void LED_ctrl(int X_LED, int state)
 {
 
 		switch (state){
@@ -51,78 +65,56 @@ void led(int X_LED, int state)
 		}
 }
 
-void btn_debounce(void)
+
+int SW_status(int SW)
 {
-	static enum{ST_NO_SW,ST_SW1,ST_SW2,ST_SW3} state;
-	switch (state){
-		case ST_NO_SW:
-			if(btn_press(SW1))
+	switch (SW)
+	{
+		case SW_MENU:
+			if(btn_press(SW_MENU))
 			{
-				state = ST_SW1;
-			}
-			else if(btn_press(SW2))
-			{
-				state = ST_SW2;
-			}
-			else if(btn_press(SW3))
-			{
-				state = ST_SW3;
-			}
-			else
-			{
-				state = ST_NO_SW;
-			}
-		break;
-		case ST_SW1:
-			if(btn_press(SW1))
-			{
-				state = ST_SW1;
-				//led(R_LED, on); //for testing
 				Delay(50);
-				//led(R_LED, off); //for testing
+				if(btn_press(SW_MENU))
+				{
+					return SW_PRESSED;
+				}
 			}
-			else
+			break;
+			
+		case SW_DOWN:
+			if(btn_press(SW_DOWN))
 			{
-				state = ST_NO_SW;
-			}
-		break;
-		case ST_SW2:
-			if(btn_press(SW2))
-			{
-				state = ST_SW2;
-				//led(Y_LED, on); //for testing
 				Delay(50);
-				//led(Y_LED, off); //for testing
+				if(btn_press(SW_DOWN))
+				{
+					return SW_PRESSED;
+				}
 			}
-			else
+			break;
+			
+		case SW_UP:
+			if(btn_press(SW_UP))
 			{
-				state = ST_NO_SW;
-			}
-		break;
-		case ST_SW3:
-			if(btn_press(SW3))
-			{
-				state = ST_SW3;
-				//led(B_LED, on); //for testing
 				Delay(50);
-				//led(B_LED, off); //for testing
+				if(btn_press(SW_UP))
+				{
+					return SW_PRESSED;
+				}
 			}
-			else
-			{
-				state = ST_NO_SW;
-			}			
-		break;
+			break;
 	}
+	
+	return SW_RELEASED;
 }
 
-//void Delay (uint32_t dly) {
-//  volatile uint32_t t;
+void Clear_All_LEDs(void)
+{
+	LED_ctrl(R_LED, LED_OFF);
+	LED_ctrl(Y_LED, LED_OFF);
+	LED_ctrl(G_LED, LED_OFF);
+	LED_ctrl(B_LED, LED_OFF);
 
-//	for (t=dly*10000; t>0; t--)
-//		;
-//}
-
-
+}
 
 
 
