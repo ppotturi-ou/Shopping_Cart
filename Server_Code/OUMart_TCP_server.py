@@ -11,6 +11,7 @@
 # Kill Script: Ctrl+Pause
 
 import socket # Import socket module
+import time
 
 print 'Started OU Mart Server...'
 
@@ -30,12 +31,17 @@ while True:
 		data = c.recv(12)
 		print "received data:", data
 		if data == "978191153103" :
-			c.send('978191153103,Book,25.00*\r\n')
+			time.sleep(1)
+			c.send('978191153103,Book ,25.00*\r\n')
+			print '978191153103,Book ,25.00*\r\n'
 		if data == "312843592186" :
+			time.sleep(1)
 			c.send('312843592186,Chips,1.00*\r\n')
+			print '312843592186,Chips,1.00*\r\n'
 		if data == "081555793715" :
-			c.send('081555793715,Soda,12.00*\r\n')
-
+			time.sleep(1)
+			c.send('081555793715,Soda ,12.00*\r\n')
+			print '081555793715,Soda ,12.00*\r\n'
 		if data == "" :
 			empty_cnt = empty_cnt+1
 			if empty_cnt >= 5 :

@@ -203,7 +203,8 @@ void LCD_Init(uint8_t v_lcdNoOfLines_u8, uint8_t v_MaxCharsPerLine_u8)
 void LCD_Clear()
 {
     LCD_CmdWrite(CMD_LCD_CLEAR);    // Clear the LCD and go to First line First Position
-    LCD_GoToLine(C_LcdLineZero);
+    Delay(5);
+		LCD_GoToLine(C_LcdLineZero);
 }
 
 

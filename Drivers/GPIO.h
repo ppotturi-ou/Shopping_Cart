@@ -22,7 +22,7 @@ GPIO header file
 #define G_LED (3) 
 #define B_LED (4) 
 #define LED_ON 1	
-#define LED_OFF 0
+#define LED_OFF 2
 
 //Switches
 #define SW_MENU   (6)   

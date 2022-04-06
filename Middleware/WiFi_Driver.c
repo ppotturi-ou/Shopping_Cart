@@ -114,9 +114,8 @@ void Run_WiFi_Driver(void)
 							LCD_GoToLine(0);
 							LCD_DisplayString("Connecting to WiFi");
 							//Send_String("AT+CWJAP=""\"""MySpectrumWiFi78-2G""\""",""\"""Kprexy2013""\"""\r\n");
+							Send_String("AT+CWJAP=""\"""WAVLINK-N""\""",""\"""Shopping123$""\"""\r\n");
 							//Send_String("AT+CWJAP=""\"""Pradeep iPhone""\""",""\"""Dimboo123$""\"""\r\n");
-							//Send_String("AT+CWJAP=""\"""WAVLINK-N""\""",""\"""Shopping123$""\"""\r\n");
-							Send_String("AT+CWJAP=""\"""Pradeep iPhone""\""",""\"""Dimboo123$""\"""\r\n");
 							Delay(2000);
 							res=read_data("WIFI CONNECTED"); 
 							if(res == WiFi_RES_SUCCESS)
@@ -174,10 +173,10 @@ void Run_WiFi_Driver(void)
 					LCD_GoToLine(0);
 					LCD_DisplayString("Connecting to Server");
 					// Connect Server in TCP protocol using IP and Port
-					//Send_String("AT+CIPSTART=""\"""TCP""\""",""\"""192.168.1.186""\""",""5002""\r\n");
-					//Send_String("AT+CIPSTART=""\"""TCP""\""",""\"""192.168.10.109""\""",""5002""\r\n");
-					Send_String("AT+CIPSTART=""\"""TCP""\""",""\"""172.20.10.8""\""",""5002""\r\n");//iPhone WiFi
-					Delay(1000);
+					//Send_String("AT+CIPSTART=""\"""TCP""\""",""\"""192.168.1.186""\""",""5002""\r\n");//Home
+					Send_String("AT+CIPSTART=""\"""TCP""\""",""\"""192.168.10.189""\""",""5002""\r\n");// Modem
+					//Send_String("AT+CIPSTART=""\"""TCP""\""",""\"""172.20.10.8""\""",""5002""\r\n");//iPhone WiFi
+					Delay(500);
 					res=read_data("OK"); 
 					if(res == WiFi_RES_SUCCESS)
 					{
@@ -400,7 +399,7 @@ uint16_t Get_Item_info(uint8_t Barcode_ID[12], char name[],char price[],int* ite
 		{
 			
 			//Wait for response from Server
-			Delay(1000);
+			Delay(500);
 			server_res=read_data_from_Server("+IPD,",&Barcode_ID[0],&name[0],&price[0]);
 			if(server_res == WiFi_RES_SUCCESS)
 			{

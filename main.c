@@ -26,6 +26,7 @@ static int Main_Menu_LCD = FALSE;
 static unsigned int Test_cnt = 0;
 static unsigned int ReadData_Server_Res=0;
 static char test_chr='\0';
+static int New_Data_Added_to_List = FALSE;
 
 void Run_Application(void);
 SC_FSM_States Return_App_FSM_State(void);
@@ -53,12 +54,14 @@ int main(void)
   LCD_DisplayString("   Shopping Cart   ");
 	
 	Init_GPIO();
-	
-	//ShoppingList[0].ItemId = 0;
-	//strcpy(&ShoppingList[0].ItemName[0],"Chips");
-	//strcpy(&ShoppingList[0].itemPrice[0],"12.00");
-	
-	//Display_Item_info();
+	Clear_Shopping_list();
+//	ShoppingList[0].ItemId = 1;
+//	strcpy(&ShoppingList[0].ItemName[0],"Chips");
+//	strcpy(&ShoppingList[0].itemPrice[0],"12.00");
+//	
+//	//Display_Item_info();
+//	
+//	Display_Receipt();
 	while(1)
 	{
 		Run_WiFi_Driver();
@@ -325,6 +328,7 @@ void Run_Application(void)
 							Clear_All_LEDs();
 							LCD_GoToLine(3); 
 							LCD_DisplayString("M: To Comp Scan");
+							New_Data_Added_to_List = TRUE;
 						}
 						else
 						{
@@ -337,7 +341,11 @@ void Run_Application(void)
 					{
 						//Turn ON RED LED for data not received
 						LCD_Clear();	 
-						LCD_DisplayString("Scanning Error...");
+						LCD_DisplayString("Scanning Error OR");
+						LCD_GoToLine(1);
+						LCD_DisplayString("Item Not Found!");
+						LCD_GoToLine(3); 
+						LCD_DisplayString("M: To Comp Scan");
 						LED_ctrl(R_LED,LED_ON);
 						//Shopping_Cart_App_State = Shopping_Complete;
 					}
@@ -350,7 +358,7 @@ void Run_Application(void)
 				{	
 					Shopping_Cart_App_State = Shopping_Complete;
 					Main_Menu_LCD	= FALSE;
-					LCD_Clear();	
+					//LCD_Clear();	
 				}
 
 			break;
@@ -374,7 +382,8 @@ void Run_Application(void)
 				Main_Menu_LCD	= FALSE;
 				Disconnect_Server();
 				LCD_Clear();
-				
+				ListCnt = 0;
+				Clear_Shopping_list();				
 			}
 			//Shopping cancelled go back to Main menu
 			if(SW_PRESSED == SW_status(SW_UP))
@@ -382,6 +391,8 @@ void Run_Application(void)
 				Shopping_Cart_App_State = Main_menu;
 				Disconnect_Server();
 				Main_Menu_LCD	= FALSE;
+				ListCnt = 0;
+				Clear_Shopping_list();
 			}
 				
 			break;
@@ -448,28 +459,36 @@ Return:
 **********************************/
 void Display_Item_info(void)
 {
-	int i=0,LCD_lineCnt=1;
+	uint8_t i=0,LCD_lineCnt=1;
 	char str_cat[20],strid[5];
 	
-	
-	for(i=0;i<3;i++)
+	if(New_Data_Added_to_List == TRUE)
 	{
-		
-		if(ShoppingList[i].ItemId !=0xFF)
+		New_Data_Added_to_List = FALSE;
+		for(i=0;i<5;i++)
 		{
 			
-			LCD_GoToLine(i);
-			sprintf(str_cat, "%d", (ShoppingList[i].ItemId)+1);
-			strcat(str_cat,".");
-			strcat(str_cat,&ShoppingList[i].ItemName[0]);
-			strcat(str_cat," $");
-			strcat(str_cat,&ShoppingList[i].itemPrice[0]);
-			
-			LCD_DisplayString(str_cat);
+			if(ShoppingList[i].ItemId !=0xFF)
+			{
+//				if(i>=3)
+//				{
+//					LCD_GoToLine(i%3);
+//				}
+//				else
+//				{
+					LCD_GoToLine(i);
+				//}
+				sprintf(str_cat, "%d", (ShoppingList[i].ItemId)+1);
+				strcat(str_cat,".");
+				strcat(str_cat,&ShoppingList[i].ItemName[0]);
+				strcat(str_cat," $");
+				strcat(str_cat,&ShoppingList[i].itemPrice[0]);
+				LCD_GoToLine(i);
+				LCD_DisplayString(str_cat);
 
+			}
 		}
 	}
-
 }
 /**********************************
 Function: Display_Receipt
@@ -482,6 +501,7 @@ void Display_Receipt(void)
 {
 	int i=0;
 	int TotalItems=0, TotalPrice=0;
+	char str_cat[20], str_conv[20];
 	
 	for(i=0;i<5;i++)
 	{
@@ -492,28 +512,57 @@ void Display_Receipt(void)
 		}
 	}
 	
-	LCD_Clear();
-	LCD_DisplayString("Total Items: ");
-	LCD_Printf("%2d",TotalItems);
+//	LCD_Clear();
+	LCD_GoToLine(0);
+	strcpy(str_cat,"Total Items: ");
+	sprintf(str_conv, "%d", TotalItems);
+	strcat(str_cat,str_conv);
+	LCD_DisplayString(str_cat);
+	
+	//LCD_DisplayString("Total Items: ");
+	//LCD_Printf("%2d",TotalItems);
+	
+	
 	LCD_GoToLine(1);
-  LCD_DisplayString("Total Price: $");
-	if((TotalPrice/100)!=0)
-	{
-		LCD_Printf("%2d",(TotalPrice/100));
-	}
-	else
-	{
-		LCD_DisplayString("00");
-	}
-	LCD_DisplayString(".");
-	if((TotalPrice%100)!=0)
-	{
-		LCD_Printf("%2d",(TotalPrice%100));
-	}
-	else
-	{
-		LCD_DisplayString("00");
-	}
+	
+	strcpy(str_cat,"Total Price: $");
+	sprintf(str_conv, "%2d", TotalPrice/100);
+	strcat(str_cat,str_conv);
+	strcat(str_cat,".");
+	sprintf(str_conv, "%2d", TotalPrice%100);
+	strcat(str_cat,str_conv);
+	LCD_DisplayString(str_cat);
+	
+//	if((TotalPrice/100)!=0)
+//	{
+//		LCD_Printf("%2d",(TotalPrice/100));
+//	}
+//	else
+//	{
+//		LCD_DisplayString("00");
+//	}
+
+//	LCD_DisplayString(str_cat);
+//	
+//	
+//  LCD_DisplayString("Total Price: $");
+//	if((TotalPrice/100)!=0)
+//	{
+//		LCD_Printf("%2d",(TotalPrice/100));
+//	}
+//	else
+//	{
+//		LCD_DisplayString("00");
+//	}
+//	LCD_DisplayString(".");
+//	if((TotalPrice%100)!=0)
+//	{
+//		LCD_Printf("%2d",(TotalPrice%100));
+//	}
+//	else
+//	{
+//		LCD_DisplayString("00");
+//	}
 	
 
 }

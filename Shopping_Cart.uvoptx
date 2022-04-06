@@ -152,9 +152,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>146</LineNumber>
+          <LineNumber>515</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>14708</Address>
+          <Address>9036</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -163,7 +163,7 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>.\main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\Shopping_Cart\main.c\146</Expression>
+          <Expression>\\Shopping_Cart\main.c\515</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -212,6 +212,16 @@
           <WinNumber>1</WinNumber>
           <ItemText>WiFi_Connection_Status</ItemText>
         </Ww>
+        <Ww>
+          <count>9</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Shopping_Cart_App_State</ItemText>
+        </Ww>
+        <Ww>
+          <count>10</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>ItemBarcode</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
@@ -243,6 +253,11 @@
           <count>5</count>
           <WinNumber>2</WinNumber>
           <ItemText>LCDConfig</ItemText>
+        </Ww>
+        <Ww>
+          <count>6</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>ShoppingList[i]</ItemText>
         </Ww>
       </WatchWindow2>
       <MemoryWindow1>
@@ -555,7 +570,7 @@
       <GroupNumber>1</GroupNumber>
       <FileNumber>1</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>.\main.c</PathWithFileName>
@@ -599,7 +614,7 @@
       <GroupNumber>2</GroupNumber>
       <FileNumber>4</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Middleware\WiFi_Driver.c</PathWithFileName>
