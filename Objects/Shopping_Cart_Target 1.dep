@@ -1,6 +1,6 @@
 Dependencies for Project 'Shopping_Cart', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 6160000::V6.16::ARMCLANG
-F (.\main.c)(0x624DE588)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/main.o -MD)
+F (.\main.c)(0x62533F56)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/main.o -MD)
 I (Include\common.h)(0x624BACB7)
 I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x623FBECB)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035BEA0)
@@ -12,16 +12,17 @@ I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624275EF)
 I (Drivers\delay.h)(0x6244B562)
 I (Middleware\Barcode_Driver.h)(0x62477B19)
 I (Drivers\Barcode_UART.h)(0x6247723C)
-I (Drivers\queue.h)(0x62421BF3)
+I (Drivers\queue.h)(0x6250D939)
 I (Middleware\LCD_Driver.h)(0x623010E7)
 I (Drivers\I2C.h)(0x62451706)
 I (Middleware\WiFi_Driver.h)(0x624B9081)
 I (Drivers\WiFi_UART.h)(0x62431BF1)
 I (Shopping_list_struct.h)(0x6245FB6B)
-I (Middleware\lcd.h)(0x624770D1)
+I (Middleware\lcd.h)(0x6253236E)
 I (Drivers\stdutils.h)(0x6243CE66)
 I (Drivers\GPIO.h)(0x624CF29E)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6035BEA4)
+I (Middleware\sleep_timer.h)(0x62533B6E)
 F (.\Shopping_list_struct.c)(0x6245FBAA)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/shopping_list_struct.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6035BEA0)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x6035BEA0)
@@ -47,8 +48,8 @@ I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cm
 I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624275EF)
 I (Drivers\delay.h)(0x6244B562)
 I (Drivers\Barcode_UART.h)(0x6247723C)
-I (Drivers\queue.h)(0x62421BF3)
-F (.\Middleware\WiFi_Driver.c)(0x624DE665)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/wifi_driver.o -MD)
+I (Drivers\queue.h)(0x6250D939)
+F (.\Middleware\WiFi_Driver.c)(0x624F6768)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/wifi_driver.o -MD)
 I (Middleware\WiFi_Driver.h)(0x624B9081)
 I (Include\common.h)(0x624BACB7)
 I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x623FBECB)
@@ -60,17 +61,17 @@ I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cm
 I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624275EF)
 I (Drivers\delay.h)(0x6244B562)
 I (Drivers\WiFi_UART.h)(0x62431BF1)
-I (Drivers\queue.h)(0x62421BF3)
+I (Drivers\queue.h)(0x6250D939)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6035BEA0)
-I (Middleware\lcd.h)(0x624770D1)
+I (Middleware\lcd.h)(0x6253236E)
 I (Drivers\stdutils.h)(0x6243CE66)
 I (Drivers\GPIO.h)(0x624CF29E)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6035BEA4)
-F (.\Middleware\lcd.c)(0x624DB4FD)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/lcd.o -MD)
+F (.\Middleware\lcd.c)(0x62532438)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/lcd.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x6035BEA4)
 I (Drivers\delay.h)(0x6244B562)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035BEA0)
-I (Middleware\lcd.h)(0x624770D1)
+I (Middleware\lcd.h)(0x6253236E)
 I (Drivers\stdutils.h)(0x6243CE66)
 I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.H)(0x623FBECB)
 I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
@@ -80,6 +81,17 @@ I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cm
 I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624275EF)
 I (Drivers\i2c.h)(0x62451706)
 I (Include\common.h)(0x624BACB7)
+F (.\Middleware\sleep_timer.c)(0x62533D99)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/sleep_timer.o -MD)
+I (Middleware\sleep_timer.h)(0x62533B6E)
+I (Include\common.h)(0x624BACB7)
+I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x623FBECB)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035BEA0)
+I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)
+I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D49FB2)
+I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D49FB2)
+I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
+I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624275EF)
+I (Drivers\delay.h)(0x6244B562)
 F (.\Drivers\I2C.c)(0x624A1FBE)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/i2c.o -MD)
 I (Drivers\I2C.h)(0x62451706)
 I (Include\common.h)(0x624BACB7)
@@ -102,9 +114,9 @@ I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cm
 I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
 I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624275EF)
 I (Drivers\delay.h)(0x6244B562)
-I (Drivers\queue.h)(0x62421BF3)
+I (Drivers\queue.h)(0x6250D939)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6035BEA4)
-F (.\Drivers\Barcode_UART.c)(0x624782F4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/barcode_uart.o -MD)
+F (.\Drivers\Barcode_UART.c)(0x624E2321)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/barcode_uart.o -MD)
 I (Drivers\Barcode_UART.h)(0x6247723C)
 I (Include\common.h)(0x624BACB7)
 I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x623FBECB)
@@ -115,10 +127,10 @@ I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cm
 I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D49FB2)
 I (RTE\Device\MKL25Z128xxx4\system_MKL25Z4.h)(0x624275EF)
 I (Drivers\delay.h)(0x6244B562)
-I (Drivers\queue.h)(0x62421BF3)
+I (Drivers\queue.h)(0x6250D939)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6035BEA4)
-F (.\Drivers\queue.c)(0x623E57EC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/queue.o -MD)
-I (Drivers\queue.h)(0x62421BF3)
+F (.\Drivers\queue.c)(0x6250D941)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./Include -I ./Drivers -I ./Middleware-I./RTE/Device/MKL25Z128xxx4-I./RTE/_Target_1-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/ARM/CMSIS/5.8.0/CMSIS/Core/Include-IC:/Users/cjp3tq/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.0/Device/Include-D__UVISION_VERSION="536" -D_RTE_ -DMKL25Z128xxx4 -D_RTE_-o ./objects/queue.o -MD)
+I (Drivers\queue.h)(0x6250D939)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6035BEA0)
 I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\Keil\Kinetis_KLxx_DFP\1.15.0\Device\Include\MKL25Z4.h)(0x623FBECB)
 I (C:\Users\cjp3tq\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D49FB2)

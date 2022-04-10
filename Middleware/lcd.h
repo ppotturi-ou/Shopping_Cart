@@ -155,6 +155,7 @@ void LCD_DisplayNumber(uint8_t v_numericSystem_u8, uint32_t v_number_u32, uint8_
 void LCD_DisplayFloatNumber(double v_floatNum_f32);
 void LCD_Printf(const char *argList, ...);
 void LCD_SetUp(void);
+void LCD_Sleep(void);
 /**************************************************************************************************/
 
 #endif

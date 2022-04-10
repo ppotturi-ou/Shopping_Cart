@@ -174,7 +174,7 @@ void Run_WiFi_Driver(void)
 					LCD_DisplayString("Connecting to Server");
 					// Connect Server in TCP protocol using IP and Port
 					//Send_String("AT+CIPSTART=""\"""TCP""\""",""\"""192.168.1.186""\""",""5002""\r\n");//Home
-					Send_String("AT+CIPSTART=""\"""TCP""\""",""\"""192.168.10.189""\""",""5002""\r\n");// Modem
+					Send_String("AT+CIPSTART=""\"""TCP""\""",""\"""192.168.10.152""\""",""5002""\r\n");// Modem
 					//Send_String("AT+CIPSTART=""\"""TCP""\""",""\"""172.20.10.8""\""",""5002""\r\n");//iPhone WiFi
 					Delay(500);
 					res=read_data("OK"); 

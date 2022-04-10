@@ -8,7 +8,7 @@
 
 # Windows use:
 # Run Script: cmd prompt: python "OUMart_TCP_server.py" 
-# Kill Script: Ctrl+Pause
+# Kill Script: Ctrl+Pause or Ctrl+Fn+B
 
 import socket # Import socket module
 import time
@@ -30,18 +30,29 @@ while True:
 	while True:
 		data = c.recv(12)
 		print "received data:", data
-		if data == "978191153103" :
+		if data == "096619475735" :
 			time.sleep(1)
-			c.send('978191153103,Book ,25.00*\r\n')
-			print '978191153103,Book ,25.00*\r\n'
+			c.send('096619475735,Paper,5.00*\r\n')
+			print '096619475735,Paper,5.00*\r\n'
 		if data == "312843592186" :
 			time.sleep(1)
 			c.send('312843592186,Chips,1.00*\r\n')
 			print '312843592186,Chips,1.00*\r\n'
 		if data == "081555793715" :
 			time.sleep(1)
-			c.send('081555793715,Soda ,12.00*\r\n')
-			print '081555793715,Soda ,12.00*\r\n'
+			c.send('081555793715,Soda ,2.00*\r\n')
+			print '081555793715,Soda ,2.00*\r\n'
+			
+		if data == "096619756803" :
+			time.sleep(1)
+			c.send('096619756803,Water,1.50*\r\n')
+			print '096619756803,Water,1.50*\r\n'	
+		
+		if data == "083046000135" :
+			time.sleep(1)
+			c.send('083046000135,Water,1.50*\r\n')
+			print '083046000135,Water,1.50*\r\n'
+			
 		if data == "" :
 			empty_cnt = empty_cnt+1
 			if empty_cnt >= 5 :

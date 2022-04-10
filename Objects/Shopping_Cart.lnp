@@ -4,6 +4,7 @@
 ".\objects\barcode_driver.o"
 ".\objects\wifi_driver.o"
 ".\objects\lcd.o"
+".\objects\sleep_timer.o"
 ".\objects\i2c.o"
 ".\objects\wifi_uart.o"
 ".\objects\barcode_uart.o"

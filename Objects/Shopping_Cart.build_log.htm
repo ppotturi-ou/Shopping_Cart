@@ -22,23 +22,57 @@ Dialog DLL:      TARMCM1.DLL V1.14.4.0
  
 <h2>Project:</h2>
 C:\Pradeep\Personal\USA\MS\OU\Embedded Systems Design\Project\Source_Code\Shopping_Cart\Shopping_Cart.uvprojx
-Project File Date:  04/04/2022
+Project File Date:  04/10/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
-Middleware/Barcode_Driver.c(12): warning: In file included from...
-./Middleware/Barcode_Driver.h(16): warning: In file included from...
-./Drivers\Barcode_UART.h(18): warning: non-portable path to file '<MKL25Z4.h>'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+Middleware/sleep_timer.c(59): warning: no previous prototype for function 'PIT_IRQHandler' [-Wmissing-prototypes]
+void PIT_IRQHandler(void)
+     ^
+Middleware/sleep_timer.c(59): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void PIT_IRQHandler(void)
+^
+static 
+1 warning generated.
+compiling sleep_timer.c...
+Shopping_list_struct.c(15): warning: In file included from...
+./Shopping_list_struct.h(14): warning: In file included from...
+./Include\common.h(22): warning: 'NULL' macro redefined [-Wmacro-redefined]
+#define NULL ((void*)0)
+        ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stddef.h(84): note: previous definition is here
+#define NULL 0
+        ^
+Shopping_list_struct.c(15): warning: In file included from...
+./Shopping_list_struct.h(21): warning: padding struct 'struct shopping_list' with 3 bytes to align 'itemPrice_dec' [-Wpadded]
+          int  itemPrice_dec;
+               ^
+Shopping_list_struct.c(68): warning: unused variable 'ptr' [-Wunused-variable]
+    struct shopping_list *ptr;
+                          ^
+Shopping_list_struct.c(66): warning: unused parameter 'front' [-Wunused-parameter]
+void display(S_shopping_list  *front)
+                               ^
+4 warnings generated.
+compiling Shopping_list_struct.c...
+Drivers/Barcode_UART.c(12): warning: In file included from...
+./Drivers/Barcode_UART.h(18): warning: non-portable path to file '<MKL25Z4.h>'; specified path differs in case from file name on disk [-Wnonportable-include-path]
 #include <MKL25Z4.H>
          ^~~~~~~~~~~
          <MKL25Z4.h>
-Middleware/Barcode_Driver.c(113): warning: implicitly declaring library function 'strncpy' with type 'char *(char *, const char *, unsigned int)' [-Wimplicit-function-declaration]
-        strncpy(BC_Dest,Barcode_Data,BARCODE_RX_SIZE-2);
-        ^
-Middleware/Barcode_Driver.c(113): note: include the header <string.h> or explicitly provide a declaration for 'strncpy'
-2 warnings generated.
-compiling Barcode_Driver.c...
+Drivers/Barcode_UART.c(119): warning: no previous prototype for function 'UART0_IRQHandler' [-Wmissing-prototypes]
+void UART0_IRQHandler(void) {
+     ^
+Drivers/Barcode_UART.c(119): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void UART0_IRQHandler(void) {
+^
+static 
+Drivers/Barcode_UART.c(180): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+        return Q_Size(&BC_RxQ);
+        ~~~~~~ ^~~~~~~~~~~~~~~
+3 warnings generated.
+compiling Barcode_UART.c...
 Drivers/I2C.c(16): warning: no previous extern declaration for non-static variable 'lock_detect' [-Wmissing-variable-declarations]
 int lock_detect=0;
     ^
@@ -79,59 +113,6 @@ void i2c_write_byte(uint8_t dev, uint8_t address, uint8_t data)
                                          ^
 8 warnings generated.
 compiling I2C.c...
-compiling delay.c...
-Drivers/WiFi_UART.c(37): warning: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
-        UART2->D = ch;
-                 ~ ^~
-Drivers/WiFi_UART.c(35): warning: unused parameter 'f' [-Wunused-parameter]
-int fputc(int ch, FILE *f){
-                        ^
-Drivers/WiFi_UART.c(42): warning: unused parameter 'f' [-Wunused-parameter]
-int fgetc(FILE *f){
-                ^
-Drivers/WiFi_UART.c(138): warning: no previous prototype for function 'UART2_IRQHandler' [-Wmissing-prototypes]
-void UART2_IRQHandler(void) {
-     ^
-Drivers/WiFi_UART.c(138): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void UART2_IRQHandler(void) {
-^
-static 
-Drivers/WiFi_UART.c(195): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
-        return Q_Size(&WiFi_UART_RxQ);
-        ~~~~~~ ^~~~~~~~~~~~~~~~~~~~~~
-5 warnings generated.
-compiling WiFi_UART.c...
-Drivers/Barcode_UART.c(12): warning: In file included from...
-./Drivers/Barcode_UART.h(18): warning: non-portable path to file '<MKL25Z4.h>'; specified path differs in case from file name on disk [-Wnonportable-include-path]
-#include <MKL25Z4.H>
-         ^~~~~~~~~~~
-         <MKL25Z4.h>
-Drivers/Barcode_UART.c(119): warning: no previous prototype for function 'UART0_IRQHandler' [-Wmissing-prototypes]
-void UART0_IRQHandler(void) {
-     ^
-Drivers/Barcode_UART.c(119): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void UART0_IRQHandler(void) {
-^
-static 
-Drivers/Barcode_UART.c(180): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
-        return Q_Size(&BC_RxQ);
-        ~~~~~~ ^~~~~~~~~~~~~~~
-3 warnings generated.
-compiling Barcode_UART.c...
-Drivers/GPIO.c(14): warning: In file included from...
-./Include\common.h(22): warning: 'NULL' macro redefined [-Wmacro-redefined]
-#define NULL ((void*)0)
-        ^
-C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h(61): note: previous definition is here
-#define NULL 0                   /* see <stddef.h> */
-        ^
-1 warning generated.
-compiling GPIO.c...
-Drivers/queue.c(21): warning: implicit conversion changes signedness: 'volatile unsigned int' to 'int' [-Wsign-conversion]
-        return q->Size;
-        ~~~~~~ ~~~^~~~
-1 warning generated.
-compiling queue.c...
 Middleware/lcd.c(76): warning: In file included from...
 ./Middleware/lcd.h(54): warning: non-portable path to file '<MKL25Z4.h>'; specified path differs in case from file name on disk [-Wnonportable-include-path]
 #include <MKL25Z4.H>
@@ -165,46 +146,46 @@ Middleware/lcd.c(77): warning: In file included from...
 ./Drivers\stdutils.h(136): note: previous definition is here
 #define FALSE              0x00u
         ^
-Middleware/lcd.c(540): warning: implicit conversion loses integer precision: 'uint32_t' (aka 'unsigned int') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+Middleware/lcd.c(536): warning: implicit conversion loses integer precision: 'uint32_t' (aka 'unsigned int') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
                 a[i]=util_GetMod32(v_number_u32,v_numericSystem_u8);
                     ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./Drivers\stdutils.h(225): note: expanded from macro 'util_GetMod32'
 #define util_GetMod32(dividend,divisor) (uint32_t)(dividend - (divisor * (uint32_t)(dividend/divisor)))
                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Middleware/lcd.c(606): warning: implicit conversion turns floating-point number into integer: 'double' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
+Middleware/lcd.c(602): warning: implicit conversion turns floating-point number into integer: 'double' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
     v_temp_u32 = v_floatNum_f32 * 100;
                ~ ~~~~~~~~~~~~~~~^~~~~
-Middleware/lcd.c(697): warning: implicit conversion loses integer precision: 'int' to 'char' [-Wimplicit-int-conversion]
+Middleware/lcd.c(693): warning: implicit conversion loses integer precision: 'int' to 'char' [-Wimplicit-int-conversion]
                 ch = va_arg(argp, int);
                    ~ ^~~~~~~~~~~~~~~~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h(43): note: expanded from macro 'va_arg'
   #define va_arg(ap, type)    __builtin_va_arg(ap, type)
                               ^~~~~~~~~~~~~~~~~~~~~~~~~~
-Middleware/lcd.c(702): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
+Middleware/lcd.c(698): warning: implicit conversion loses integer precision: 'int' to 'int16_t' (aka 'short') [-Wimplicit-int-conversion]
                 v_num_s16 = va_arg(argp, int);
                           ~ ^~~~~~~~~~~~~~~~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h(43): note: expanded from macro 'va_arg'
   #define va_arg(ap, type)    __builtin_va_arg(ap, type)
                               ^~~~~~~~~~~~~~~~~~~~~~~~~~
-Middleware/lcd.c(708): warning: implicit conversion changes signedness: 'int16_t' (aka 'short') to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+Middleware/lcd.c(704): warning: implicit conversion changes signedness: 'int16_t' (aka 'short') to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
                 LCD_DisplayNumber(C_DECIMAL_U8,v_num_s16,v_numOfDigitsToDisp_u8);
                 ~~~~~~~~~~~~~~~~~              ^~~~~~~~~
-Middleware/lcd.c(718): warning: implicit conversion changes signedness: 'int32_t' (aka 'int') to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+Middleware/lcd.c(714): warning: implicit conversion changes signedness: 'int32_t' (aka 'int') to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
                 LCD_DisplayNumber(C_DECIMAL_U8,v_num_s32,v_numOfDigitsToDisp_u8);              
                 ~~~~~~~~~~~~~~~~~              ^~~~~~~~~
-Middleware/lcd.c(722): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+Middleware/lcd.c(718): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
                 v_num_u16 = va_arg(argp, int);
                           ~ ^~~~~~~~~~~~~~~~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h(43): note: expanded from macro 'va_arg'
   #define va_arg(ap, type)    __builtin_va_arg(ap, type)
                               ^~~~~~~~~~~~~~~~~~~~~~~~~~
-Middleware/lcd.c(732): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+Middleware/lcd.c(728): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
                 v_num_u16 = va_arg(argp, int);
                           ~ ^~~~~~~~~~~~~~~~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h(43): note: expanded from macro 'va_arg'
   #define va_arg(ap, type)    __builtin_va_arg(ap, type)
                               ^~~~~~~~~~~~~~~~~~~~~~~~~~
-Middleware/lcd.c(743): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+Middleware/lcd.c(739): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
                 v_num_u16 = va_arg(argp, int);
                           ~ ^~~~~~~~~~~~~~~~~
 C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h(43): note: expanded from macro 'va_arg'
@@ -218,26 +199,91 @@ uint8_t v_LcdTrackLineNum_U8;         //Variable to track the line numbers
 ^
 15 warnings generated.
 compiling lcd.c...
-Shopping_list_struct.c(15): warning: In file included from...
-./Shopping_list_struct.h(14): warning: In file included from...
-./Include\common.h(22): warning: 'NULL' macro redefined [-Wmacro-redefined]
-#define NULL ((void*)0)
+Drivers/queue.c(32): warning: implicit conversion changes signedness: 'volatile unsigned int' to 'int' [-Wsign-conversion]
+        return q->Size;
+        ~~~~~~ ~~~^~~~
+1 warning generated.
+compiling queue.c...
+Middleware/Barcode_Driver.c(12): warning: In file included from...
+./Middleware/Barcode_Driver.h(16): warning: In file included from...
+./Drivers\Barcode_UART.h(18): warning: non-portable path to file '<MKL25Z4.h>'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+#include <MKL25Z4.H>
+         ^~~~~~~~~~~
+         <MKL25Z4.h>
+Middleware/Barcode_Driver.c(113): warning: implicitly declaring library function 'strncpy' with type 'char *(char *, const char *, unsigned int)' [-Wimplicit-function-declaration]
+        strncpy(BC_Dest,Barcode_Data,BARCODE_RX_SIZE-2);
         ^
-C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stddef.h(84): note: previous definition is here
-#define NULL 0
-        ^
-Shopping_list_struct.c(15): warning: In file included from...
+Middleware/Barcode_Driver.c(113): note: include the header <string.h> or explicitly provide a declaration for 'strncpy'
+2 warnings generated.
+compiling Barcode_Driver.c...
+Drivers/WiFi_UART.c(37): warning: implicit conversion loses integer precision: 'int' to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+        UART2->D = ch;
+                 ~ ^~
+Drivers/WiFi_UART.c(35): warning: unused parameter 'f' [-Wunused-parameter]
+int fputc(int ch, FILE *f){
+                        ^
+Drivers/WiFi_UART.c(42): warning: unused parameter 'f' [-Wunused-parameter]
+int fgetc(FILE *f){
+                ^
+Drivers/WiFi_UART.c(138): warning: no previous prototype for function 'UART2_IRQHandler' [-Wmissing-prototypes]
+void UART2_IRQHandler(void) {
+     ^
+Drivers/WiFi_UART.c(138): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void UART2_IRQHandler(void) {
+^
+static 
+Drivers/WiFi_UART.c(195): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+        return Q_Size(&WiFi_UART_RxQ);
+        ~~~~~~ ^~~~~~~~~~~~~~~~~~~~~~
+5 warnings generated.
+compiling WiFi_UART.c...
+compiling delay.c...
+main.c(13): warning: In file included from...
+./Middleware\Barcode_Driver.h(16): warning: In file included from...
+./Drivers\Barcode_UART.h(18): warning: non-portable path to file '<MKL25Z4.h>'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+#include <MKL25Z4.H>
+         ^~~~~~~~~~~
+         <MKL25Z4.h>
+main.c(17): warning: In file included from...
+./Middleware\lcd.h(54): warning: non-portable path to file '<MKL25Z4.h>'; specified path differs in case from file name on disk [-Wnonportable-include-path]
+#include <MKL25Z4.H>
+         ^~~~~~~~~~~
+         <MKL25Z4.h>
+main.c(16): warning: In file included from...
 ./Shopping_list_struct.h(21): warning: padding struct 'struct shopping_list' with 3 bytes to align 'itemPrice_dec' [-Wpadded]
           int  itemPrice_dec;
                ^
-Shopping_list_struct.c(68): warning: unused variable 'ptr' [-Wunused-variable]
-    struct shopping_list *ptr;
-                          ^
-Shopping_list_struct.c(66): warning: unused parameter 'front' [-Wunused-parameter]
-void display(S_shopping_list  *front)
+main.c(317): warning: passing 'char *' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
+                                        ReadData_Server_Res = Get_Item_info(&ItemBarcode[0],&itemname[0],&price[0],&price_dec); 
+                                                                            ^~~~~~~~~~~~~~~
+./Middleware\WiFi_Driver.h(44): note: passing argument to parameter 'Barcode_ID' here
+uint16_t Get_Item_info(uint8_t Barcode_ID[12], char name[],char price[],int* itemPriceDec);
                                ^
-4 warnings generated.
-compiling Shopping_list_struct.c...
+main.c(501): warning: implicitly declaring library function 'strcat' with type 'char *(char *, const char *)' [-Wimplicit-function-declaration]
+                                strcat(str_cat,".");
+                                ^
+main.c(501): note: include the header <string.h> or explicitly provide a declaration for 'strcat'
+main.c(482): warning: unused variable 'strid' [-Wunused-variable]
+        char str_cat[20],strid[5];
+                         ^
+main.c(481): warning: unused variable 'LCD_lineCnt' [-Wunused-variable]
+        uint8_t i=0,LCD_lineCnt=1;
+                    ^
+main.c(538): warning: implicitly declaring library function 'strcpy' with type 'char *(char *, const char *)' [-Wimplicit-function-declaration]
+        strcpy(str_cat,"Total Items: ");
+        ^
+main.c(538): note: include the header <string.h> or explicitly provide a declaration for 'strcpy'
+main.c(25): warning: no previous extern declaration for non-static variable 'ShoppingList' [-Wmissing-variable-declarations]
+S_shopping_list ShoppingList[5];
+                ^
+main.c(25): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+S_shopping_list ShoppingList[5];
+^
+main.c(29): warning: unused variable 'test_chr' [-Wunused-variable]
+static char test_chr='\0';
+            ^
+10 warnings generated.
+compiling main.c...
 Middleware/WiFi_Driver.c(14): warning: In file included from...
 ./Middleware/lcd.h(54): warning: non-portable path to file '<MKL25Z4.h>'; specified path differs in case from file name on disk [-Wnonportable-include-path]
 #include <MKL25Z4.H>
@@ -268,7 +314,7 @@ Middleware/WiFi_Driver.c(120): warning: passing 'char [15]' to parameter of type
 uint16_t read_data(uint8_t * str);
                              ^
 Middleware/WiFi_Driver.c(177): warning: passing 'char [42]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
-                                        Send_String("AT+CIPSTART=""\"""TCP""\""",""\"""192.168.10.189""\""",""5002""\r\n");// Modem
+                                        Send_String("AT+CIPSTART=""\"""TCP""\""",""\"""192.168.10.152""\""",""5002""\r\n");// Modem
                                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./Drivers\WiFi_UART.h(31): note: passing argument to parameter 'str' here
 void Send_String(uint8_t * str);
@@ -419,57 +465,20 @@ uint16_t read_data(uint8_t * str)
                              ^
 35 warnings generated.
 compiling WiFi_Driver.c...
-main.c(13): warning: In file included from...
-./Middleware\Barcode_Driver.h(16): warning: In file included from...
-./Drivers\Barcode_UART.h(18): warning: non-portable path to file '<MKL25Z4.h>'; specified path differs in case from file name on disk [-Wnonportable-include-path]
-#include <MKL25Z4.H>
-         ^~~~~~~~~~~
-         <MKL25Z4.h>
-main.c(17): warning: In file included from...
-./Middleware\lcd.h(54): warning: non-portable path to file '<MKL25Z4.h>'; specified path differs in case from file name on disk [-Wnonportable-include-path]
-#include <MKL25Z4.H>
-         ^~~~~~~~~~~
-         <MKL25Z4.h>
-main.c(16): warning: In file included from...
-./Shopping_list_struct.h(21): warning: padding struct 'struct shopping_list' with 3 bytes to align 'itemPrice_dec' [-Wpadded]
-          int  itemPrice_dec;
-               ^
-main.c(308): warning: passing 'char *' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types where one is of the unique plain 'char' type and the other is not [-Wpointer-sign]
-                                        ReadData_Server_Res = Get_Item_info(&ItemBarcode[0],&itemname[0],&price[0],&price_dec); 
-                                                                            ^~~~~~~~~~~~~~~
-./Middleware\WiFi_Driver.h(44): note: passing argument to parameter 'Barcode_ID' here
-uint16_t Get_Item_info(uint8_t Barcode_ID[12], char name[],char price[],int* itemPriceDec);
-                               ^
-main.c(482): warning: implicitly declaring library function 'strcat' with type 'char *(char *, const char *)' [-Wimplicit-function-declaration]
-                                strcat(str_cat,".");
-                                ^
-main.c(482): note: include the header <string.h> or explicitly provide a declaration for 'strcat'
-main.c(463): warning: unused variable 'strid' [-Wunused-variable]
-        char str_cat[20],strid[5];
-                         ^
-main.c(462): warning: unused variable 'LCD_lineCnt' [-Wunused-variable]
-        uint8_t i=0,LCD_lineCnt=1;
-                    ^
-main.c(517): warning: implicitly declaring library function 'strcpy' with type 'char *(char *, const char *)' [-Wimplicit-function-declaration]
-        strcpy(str_cat,"Total Items: ");
+Drivers/GPIO.c(14): warning: In file included from...
+./Include\common.h(22): warning: 'NULL' macro redefined [-Wmacro-redefined]
+#define NULL ((void*)0)
         ^
-main.c(517): note: include the header <string.h> or explicitly provide a declaration for 'strcpy'
-main.c(24): warning: no previous extern declaration for non-static variable 'ShoppingList' [-Wmissing-variable-declarations]
-S_shopping_list ShoppingList[5];
-                ^
-main.c(24): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-S_shopping_list ShoppingList[5];
-^
-main.c(28): warning: unused variable 'test_chr' [-Wunused-variable]
-static char test_chr='\0';
-            ^
-10 warnings generated.
-compiling main.c...
-assembling startup_MKL25Z4.s...
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h(61): note: previous definition is here
+#define NULL 0                   /* see <stddef.h> */
+        ^
+1 warning generated.
+compiling GPIO.c...
 compiling system_MKL25Z4.c...
+assembling startup_MKL25Z4.s...
 linking...
-Program Size: Code=17116 RO-data=1560 RW-data=20 ZI-data=2672  
-".\Objects\Shopping_Cart.axf" - 0 Error(s), 84 Warning(s).
+Program Size: Code=17808 RO-data=1612 RW-data=20 ZI-data=2680  
+".\Objects\Shopping_Cart.axf" - 0 Error(s), 85 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -496,10 +505,10 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.5.0
 
    * Component: Keil::Device:Startup:2.5.0
-      Source file:   Device\Source\system_MKL25Z4.c
-      Include file:  Device\Source\system_MKL25Z4.h
       Source file:   Device\Source\ARM\startup_MKL25Z4.s
-Build Time Elapsed:  00:00:04
+      Include file:  Device\Source\system_MKL25Z4.h
+      Source file:   Device\Source\system_MKL25Z4.c
+Build Time Elapsed:  00:00:06
 </pre>
 </body>
 </html>

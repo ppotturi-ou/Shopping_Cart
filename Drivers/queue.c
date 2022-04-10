@@ -1,3 +1,14 @@
+/****************************************************
+Project: Shopping Cart with Built in billing system
+Members: ppotturi@oakland.edu
+
+Course: ECE 5721/4721 Winter 2022
+Oakland University
+
+Description:
+Queue handler, reusing from Embedded System Course Textbook
+
+****************************************************/
 #include "queue.h"
 
 void Q_Init(Q_T * q) {
@@ -66,4 +77,4 @@ uint8_t Q_Dequeue(Q_T * q) {
 }
 
 
-// *******************************ARM University Program Copyright © ARM Ltd 2013*************************************   
+// *************ARM University Program Copyright © ARM Ltd 2013************************   

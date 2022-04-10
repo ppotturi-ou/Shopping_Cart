@@ -207,10 +207,6 @@ void LCD_Clear()
 		LCD_GoToLine(C_LcdLineZero);
 }
 
-
-
-
-
 /***************************************************************************************************
                          void LCD_GoToLine(uint8_t v_lineNumber_u8)
 ****************************************************************************************************
@@ -854,6 +850,47 @@ static void lcd_Reset(void)
 //    lcd_SendCmdSignals();
 //    DELAY_us(200);
 }
+
+
+/***************************************************************************************************
+                         void LCD_Sleep()
+****************************************************************************************************
+ * I/P Arguments: none.
+ * Return value    : none
+
+ * description  :This function clears the LCD and moves the cursor to beginning of first line
+****************************************************************************************************/
+void LCD_Sleep(void)
+{
+	uint8_t ctrl_data; //RS/RW/EN
+	uint8_t final_data;
+	uint8_t add = 0x4E;
+	uint8_t data = 0x20;
+	
+	
+	LCD_Clear();
+	
+	// Send upper nibble
+	ctrl_data = RS_1|EN_1; //EN=1
+	final_data = (data&0xF0) | (ctrl_data&0x0F);
+	i2c_write_byte(add, 0x00, final_data); // Send data with EN=1
+	Delay(1);
+	ctrl_data = RS_1|EN_0; //En =0
+  final_data = (data&0xF0) | (ctrl_data&0x0F);
+	i2c_write_byte(add, 0x00, final_data);// Send data with EN=0
+	Delay(1);
+	
+	// Send lower nibble
+	ctrl_data = RS_1|EN_1; //En =1
+	final_data = ((data<<4)&0xF0) | (ctrl_data&0x0F);
+	i2c_write_byte(add, 0x00, final_data); // Send data with EN=1
+	Delay(1);
+	ctrl_data = RS_1|EN_0; //En =0
+	final_data = ((data<<4)&0xF0) | (ctrl_data&0x0F);
+	i2c_write_byte(add, 0x00, final_data);// Send data with EN=0
+	Delay(1);
+}
+
 
 
 

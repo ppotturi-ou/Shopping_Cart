@@ -17,6 +17,7 @@ Lab#3 Application file
 #include "lcd.h"
 #include "I2C.h"
 #include "GPIO.h"
+#include "sleep_timer.h"
 
 static SC_FSM_States Shopping_Cart_App_State = Invalid_State;
 static int ListCnt = 0;
@@ -144,6 +145,7 @@ void Run_Application(void)
 					LCD_DisplayString("Connecting to WiFi");	
 					//Main_Menu_LCD	= TRUE;	
 					Clear_All_LEDs();
+					Start_timer();
 				}					
 			
 				if(WiFi_Connection_Sucess == Get_WiFi_Connection_Status())
@@ -182,21 +184,28 @@ void Run_Application(void)
 						
 					//}
 					Shopping_Cart_App_State = Invalid_State;
+					Stop_timer();
 				}
+				
 				if(SW_PRESSED == SW_status(SW_MENU))
 				{	
 					Shopping_Cart_App_State = Shopping_menu;
 					Main_Menu_LCD	= FALSE;
-					//Test_cnt = 0;
-					//LCD_Clear();	
-					//LCD_GoToLine(0); 
-					//LCD_DisplayString("Connecting to Server");
+					Stop_timer();
 				}
 				if(SW_PRESSED == SW_status(SW_UP))
 				{	
 					Shopping_Cart_App_State = Redo_Self_Test;
 					Main_Menu_LCD	= FALSE;
+					Stop_timer();
 					
+				}
+				
+				if(get_sleep_status() == 1)
+				{
+					// 30 sec timer expired, set LCD to Sleep state.
+					LCD_Sleep();
+				
 				}
 // Todo: replace this in M_KEY Switch Press Testing only Remove this for final Project
 //				if(Test_cnt > 0x10)
@@ -238,7 +247,12 @@ void Run_Application(void)
 						//Shopping_Cart_App_State = Scanning;
 						Main_Menu_LCD	= TRUE;
 					}
-					
+						if(SW_PRESSED == SW_status(SW_MENU))
+						{	
+							Shopping_Cart_App_State = Scanning;
+							Main_Menu_LCD	= FALSE;
+							LCD_Clear();	
+						}
 				}
 				//else if(WiFi_ServerConnection_Fail == Get_Server_Connection_Status())
 				else
@@ -268,12 +282,7 @@ void Run_Application(void)
 				//	Test_cnt++;
 				//}
 				
-				if(SW_PRESSED == SW_status(SW_MENU))
-				{	
-					Shopping_Cart_App_State = Scanning;
-					Main_Menu_LCD	= FALSE;
-					LCD_Clear();	
-				}
+
 				if(SW_PRESSED == SW_status(SW_DOWN))
 				{	
 					Shopping_Cart_App_State = Main_menu;
@@ -378,16 +387,26 @@ void Run_Application(void)
 			//Shopping complete go back to Main menu
 			if(SW_PRESSED == SW_status(SW_MENU))
 			{	
+				LCD_Clear();
+				LCD_GoToLine(1); 
+				LCD_DisplayString("    Thank You");
+				LCD_GoToLine(2); 
+				LCD_DisplayString("    Vist Again!");
 				Shopping_Cart_App_State = Main_menu;
 				Main_Menu_LCD	= FALSE;
 				Disconnect_Server();
-				LCD_Clear();
+
 				ListCnt = 0;
 				Clear_Shopping_list();				
 			}
 			//Shopping cancelled go back to Main menu
 			if(SW_PRESSED == SW_status(SW_UP))
 			{	
+				LCD_Clear();
+				LCD_GoToLine(1); 
+				LCD_DisplayString("    Thank You");
+				LCD_GoToLine(2); 
+				LCD_DisplayString("    Vist Again!");
 				Shopping_Cart_App_State = Main_menu;
 				Disconnect_Server();
 				Main_Menu_LCD	= FALSE;
@@ -513,6 +532,8 @@ void Display_Receipt(void)
 	}
 	
 //	LCD_Clear();
+	LCD_GoToLine(0);
+	LCD_DisplayString("                    ");// Clear Line #0
 	LCD_GoToLine(0);
 	strcpy(str_cat,"Total Items: ");
 	sprintf(str_conv, "%d", TotalItems);

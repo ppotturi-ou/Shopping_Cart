@@ -413,6 +413,11 @@
               <FileType>1</FileType>
               <FilePath>.\Middleware\lcd.c</FilePath>
             </File>
+            <File>
+              <FileName>sleep_timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Middleware\sleep_timer.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -864,6 +869,11 @@
               <FileName>lcd.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Middleware\lcd.c</FilePath>
+            </File>
+            <File>
+              <FileName>sleep_timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Middleware\sleep_timer.c</FilePath>
             </File>
           </Files>
         </Group>
