@@ -15,7 +15,7 @@ Queue handler, reusing from Embedded System Course Textbook
 #include <stdint.h>
 #include <MKL25Z4.h>
 
-#define Q_MAX_SIZE (512)
+#define Q_MAX_SIZE (100)
 
 typedef struct {
   unsigned int Head; // Index of oldest data element 

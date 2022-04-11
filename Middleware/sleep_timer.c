@@ -66,6 +66,7 @@ void PIT_IRQHandler(void)
         //Clear interrupt request flag for channel
         PIT->CHANNEL[0].TFLG &= PIT_TFLG_TIF_MASK;
 			
+			
     }
 }
 

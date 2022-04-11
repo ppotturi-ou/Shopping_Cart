@@ -60,7 +60,7 @@ void Run_WiFi_Driver(void)
 			break;
 			
 			case WiFi_SelfTest:
-				if(Return_App_FSM_State() == Self_Test)
+				if((Return_App_FSM_State() == Self_Test)|(Return_App_FSM_State() == Redo_Self_Test))
 				{
 					Send_String((uint8_t *)"AT\r\n");
 					Delay(5);
@@ -99,6 +99,10 @@ void Run_WiFi_Driver(void)
 							WiFi_SelfTest_Status = WiFi_SelfTest_Fail;						
 						}
 					}
+				}
+				else if(Return_App_FSM_State() == Main_menu)
+				{
+					WiFi_State = WiFi_Connect;
 				}
 			break;
 			
@@ -399,7 +403,7 @@ uint16_t Get_Item_info(uint8_t Barcode_ID[12], char name[],char price[],int* ite
 		{
 			
 			//Wait for response from Server
-			Delay(500);
+			Delay(1000);
 			server_res=read_data_from_Server("+IPD,",&Barcode_ID[0],&name[0],&price[0]);
 			if(server_res == WiFi_RES_SUCCESS)
 			{

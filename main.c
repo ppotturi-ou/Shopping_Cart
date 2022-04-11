@@ -204,8 +204,11 @@ void Run_Application(void)
 				if(get_sleep_status() == 1)
 				{
 					// 30 sec timer expired, set LCD to Sleep state.
+					Stop_timer();
 					LCD_Sleep();
-				
+					while((SW_PRESSED != SW_status(SW_MENU))&&(SW_PRESSED != SW_status(SW_UP))&&(SW_PRESSED != SW_status(SW_DOWN)));
+					//Disconnect_Server();
+					Shopping_Cart_App_State = Redo_Self_Test;
 				}
 // Todo: replace this in M_KEY Switch Press Testing only Remove this for final Project
 //				if(Test_cnt > 0x10)
@@ -367,7 +370,8 @@ void Run_Application(void)
 				{	
 					Shopping_Cart_App_State = Shopping_Complete;
 					Main_Menu_LCD	= FALSE;
-					//LCD_Clear();	
+					Clear_All_LEDs();
+					LCD_Clear();	
 				}
 
 			break;
@@ -376,6 +380,9 @@ void Run_Application(void)
 			// Count Final #items and total Price
 			if(Main_Menu_LCD != TRUE)
 			{
+					LCD_GoToLine(0);
+					LCD_DisplayString("                    ");// Clear Line #0
+					LCD_GoToLine(0);
 				Display_Receipt();
 				LCD_GoToLine(2); 
 				LCD_DisplayString("M: To Comp Shopping");		
@@ -532,9 +539,9 @@ void Display_Receipt(void)
 	}
 	
 //	LCD_Clear();
-	LCD_GoToLine(0);
-	LCD_DisplayString("                    ");// Clear Line #0
-	LCD_GoToLine(0);
+//	LCD_GoToLine(0);
+//	LCD_DisplayString("                    ");// Clear Line #0
+//	LCD_GoToLine(0);
 	strcpy(str_cat,"Total Items: ");
 	sprintf(str_conv, "%d", TotalItems);
 	strcat(str_cat,str_conv);
@@ -588,10 +595,23 @@ void Display_Receipt(void)
 
 }
 
-//void HardFault_Handler(void)
-//{
-//	
-//	while(1);
-//}
+
+void HardFault_Handler(void)
+{
+	int i=0;
+	LED_ctrl(R_LED,LED_ON);
+	
+	while(1)
+	{
+		LED_ctrl(R_LED,i);
+		i = (0x0001&(~i));
+		Delay(200);
+	}
+	
+	LCD_Clear();
+	LCD_GoToLine(1); 
+	LCD_DisplayString(" Hardware Fault ");
+
+}
 
 /*** EOF  ****/
